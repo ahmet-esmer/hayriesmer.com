@@ -51,6 +51,7 @@ test:
 #
 production:
   <<: *default
-  database: #simple_cms_production
+  adapter: postgresql
+  database: hayri_esmer_production
   username: hayri_esmer
-  password: 1234 #<%= ENV['SIMPLE_CMS_DATABASE_PASSWORD'] %>
+  password: 1234
