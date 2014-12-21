@@ -5,14 +5,14 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.6'
 
 # Use mysql as the database for Active Record
-group :production do
-  gem 'pg'
-end
+#group :production do
+ # gem 'pg'
+#end
 
 # Use mysql as the database for Active Record
-group :development do
+#group :development do
   gem 'mysql2'
-end
+#end
 
 
 
