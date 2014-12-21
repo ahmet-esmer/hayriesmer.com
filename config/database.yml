@@ -53,5 +53,5 @@ production:
   adapter: postgresql
   encoding: unicode
   database: hayri_esmer_production
-  #username: hayri_esmer
-  #password: 1234
+  username: hayri_esmer
+  password: 4612312
