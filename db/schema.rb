@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206214114) do
+ActiveRecord::Schema.define(version: 20141216215637) do
 
   create_table "articles", force: true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20141206214114) do
   end
 
   create_table "users", force: true do |t|
+    t.string   "user_name",       limit: 25
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at"

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 #ruby-2.0.0-p481
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-ruby '2.0.0'
+#ruby '2.0.0'
 
 gem 'rails', '4.1.6'
 
