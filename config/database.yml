@@ -10,15 +10,14 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 #
 default: &default
-  adapter: mysql2
-  encoding: utf8
   pool: 5
-  username: root
-  password: 1234
-  socket: /tmp/mysql.sock
+
 
 development:
   <<: *default
+  adapter: mysql2
+  socket: /tmp/mysql.sock
+  encoding: utf8
   database: hayri_esmer_development
   username: root
   password: 1234
@@ -52,6 +51,7 @@ test:
 production:
   <<: *default
   adapter: postgresql
+  encoding: unicode
   database: hayri_esmer_production
-  username: hayri_esmer
-  password: 1234
+  #username: hayri_esmer
+  #password: 1234

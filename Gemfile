@@ -2,14 +2,9 @@ source 'https://rubygems.org'
 #ruby-2.0.0-p481
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-
-#ruby '2.1.3'
+ruby '2.0.0'
 
 gem 'rails', '4.1.6'
-
-
-gem 'mysql2'
-
 
 group :development, :test do
   gem 'mysql2'
@@ -19,9 +14,6 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
-
-
-
 
 
 # Use SCSS for stylesheets
