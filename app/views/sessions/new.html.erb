@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login</title>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+
+</head>
+<body id="login">
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="login-panel panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Please Sign In</h3>
+        </div>
+        <div class="panel-body">
+
+            <fieldset>
+              <%= form_tag sessions_path do %>
+                  <div class="form-group">
+                    <%= label_tag :email %><br />
+                    <%= text_field_tag :email, params[:email], class: 'form-control'  %>
+                  </div>
+                  <div class="form-group">
+                    <%= label_tag :'Şifre' %><br />
+                    <%= password_field_tag :password, nil,class: 'form-control' %>
+                  </div>
+                  <div class="actions">
+                    <%= submit_tag "Log In", class: 'btn btn-lg btn-success btn-block'  %>
+                  </div>
+              <% end %>
+
+            </fieldset>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
