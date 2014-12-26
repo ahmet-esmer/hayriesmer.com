@@ -77,4 +77,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #config.assets.initialize_on_precompile=false
+
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+  config.assets.precompile += %w(.svg .eot .woff .ttf)
 end
