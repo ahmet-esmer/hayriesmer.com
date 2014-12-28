@@ -5,6 +5,13 @@ class Admin::UsersController < ApplicationController
 
   def index
     @users = User.all
+
+    #Loglama seviyeleri.
+    logger.info("test Ahmet")
+    logger.debug("debug")
+    logger.warn("warn")
+    logger.error("error")
+    logger.fatal("fatal")
   end
 
   def new

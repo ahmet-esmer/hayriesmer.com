@@ -1,5 +1,10 @@
 == README
 
+CONTROL VE VİEW OLUŞTURMA
+rails generate controller Users new create destroy
+rails generate scaffold_controller User  --skip-jbuilder
+
+
 MODEL OLUŞTURMA
 rails generate model Language --migration=false
 
@@ -24,11 +29,13 @@ rake db:migrate:redo
 
 YAYINLAMA
 
-
-
 $ git add .
 $ git commit -am "make it better"
 $ git push heroku master
+
+
+LOG TEMİZLEME
+rake log:clear
 
 
 This README would normally document whatever steps are necessary to get the
