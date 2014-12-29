@@ -1,6 +1,10 @@
 class Admin::LanguagesController < ApplicationController
   before_action :set_admin_language, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authorize
+
+  layout "admin"
+
   # GET /admin/languages
   # GET /admin/languages.json
   def index

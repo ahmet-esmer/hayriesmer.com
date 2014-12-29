@@ -2,6 +2,8 @@ class Admin::ArticlesController < ApplicationController
 
   before_filter :authorize
 
+  layout "admin"
+
   # GET /articles
   # GET /articles.json
   def index

@@ -33,6 +33,8 @@ $ git add .
 $ git commit -am "make it better"
 $ git push heroku master
 
+DB GÜNCELLEME
+heroku run rake db:migrate
 
 LOG TEMİZLEME
 rake log:clear
