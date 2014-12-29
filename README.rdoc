@@ -2,7 +2,7 @@
 
 CONTROL VE VİEW OLUŞTURMA
 rails generate controller Users new create destroy
-rails generate scaffold_controller User  --skip-jbuilder
+rails generate scaffold_controller admin/Language  name:string{25} code:string{5} icon:string{25} is_active:boolean --skip-jbuilder
 
 
 MODEL OLUŞTURMA

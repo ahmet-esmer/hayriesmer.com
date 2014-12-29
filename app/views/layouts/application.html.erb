@@ -73,9 +73,6 @@
           <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
         </li>
         <li>
-          <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-        </li>
-        <li>
           <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
           <ul id="demo" class="collapse">
             <li>
@@ -86,8 +83,16 @@
             </li>
           </ul>
         </li>
+
+        <li>
+          <%= link_to admin_languages_path do %>
+              <i class='fa fa-fw fa-wrench'></i> Diller
+          <% end %>
+        </li>
         <li class="active">
-          <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+          <%= link_to admin_users_path do %>
+              <i class='fa fa-users'></i> Kullanıcılar
+          <% end %>
         </li>
       </ul>
     </div>

@@ -7,11 +7,13 @@ HayriEsmer::Application.routes.draw do
 
   resources :users
   resources :sessions
+  #resources :languages
 
   namespace :admin do
     get '', to: 'dashboard#index', as: '/'
     resources :articles
     resources :users
+    resources :languages
   end
 
   root to: 'articles#index'

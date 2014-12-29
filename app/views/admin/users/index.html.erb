@@ -1,17 +1,26 @@
 <h1>Listing users</h1>
-
-<table>
+<div class="table-responsive">
+<table class="table table-bordered table-hover table-striped" >
+  <thead>
   <tr>
+    <th>Adı Soyadı</th>
     <th>Email</th>
+    <th colspan="3"></th>
   </tr>
-
+  </thead>
+  <tbody>
   <% @users.each do |user| %>
       <tr>
+        <td><%= user.user_name %></td>
         <td><%= user.email %></td>
+        <td><%= link_to 'Detay',  admin_user_path(user)  %></td>
+        <td><%= link_to 'Düzenle', edit_admin_user_path(user) %></td>
+        <td><%= link_to 'Sil', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
+  </tbody>
 </table>
-
+</div>
 <br />
 
-<%= link_to 'New User', new_admin_user_path %>
+<%= link_to 'Yeni Kullanıcı', new_admin_user_path, class:'btn btn-default' %>
