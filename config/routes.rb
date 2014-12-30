@@ -1,4 +1,6 @@
 HayriEsmer::Application.routes.draw do
+
+  mount Ckeditor::Engine => '/ckeditor'
   resources :articles, only: [:index]
 
   get 'signup', to: 'users#new',        as: :signup
@@ -7,7 +9,6 @@ HayriEsmer::Application.routes.draw do
 
   resources :users
   resources :sessions
-  #resources :languages
 
   namespace :admin do
     get '', to: 'dashboard#index', as: '/'

@@ -28,3 +28,8 @@ gem 'bcrypt', '~> 3.1.9'
 gem 'email_validator'
 
 
+gem 'ckeditor'
+
+gem 'paperclip'
+
+

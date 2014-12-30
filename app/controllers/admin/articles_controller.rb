@@ -45,7 +45,8 @@ class Admin::ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(params[:article])
+
+    @article = Article.new(params.require(:article).permit!)
 
     respond_to do |format|
       if @article.save
@@ -64,7 +65,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     respond_to do |format|
-      if @article.update_attributes(params[:article])
+      if @article.update_attributes(params.require(:article).permit!)
         format.html { redirect_to admin_articles_url, notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
