@@ -15,6 +15,7 @@ HayriEsmer::Application.routes.draw do
     resources :articles
     resources :users
     resources :languages
+    resources :links
   end
 
   root to: 'articles#index'

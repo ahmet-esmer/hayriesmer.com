@@ -1,13 +1,15 @@
 class Admin::ArticlesController < ApplicationController
 
-  before_filter :authorize
-
   layout "admin"
+  before_filter :authorize
+  before_action :set_language, only: [:new, :edit, :update, :create]
+
+
 
   # GET /articles
-  # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.joins(:language).all
+    logger.fatal(@articles)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +18,6 @@ class Admin::ArticlesController < ApplicationController
   end
 
   # GET /articles/1
-  # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
 
@@ -27,14 +28,12 @@ class Admin::ArticlesController < ApplicationController
   end
 
   # GET /articles/new
-  # GET /articles/new.json
   def new
     @article = Article.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @article }
-    end
+    #respond_to do |format|
+     # format.html # new.html.erb
+      #format.json { render json: @article }
+   # end
   end
 
   # GET /articles/1/edit
@@ -43,47 +42,36 @@ class Admin::ArticlesController < ApplicationController
   end
 
   # POST /articles
-  # POST /articles.json
   def create
-
     @article = Article.new(params.require(:article).permit!)
 
-    respond_to do |format|
-      if @article.save
-        format.html { redirect_to admin_articles_url, notice: 'Article was successfully created.' }
-        format.json { render json: @article, status: :created, location: [:admin,@article] }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+    if @article.save
+      redirect_to admin_articles_url, success: 'Makale kaydı oluştururdu.'
+    else
+      render action: :new
     end
   end
 
   # PUT /articles/1
-  # PUT /articles/1.json
   def update
     @article = Article.find(params[:id])
-
-    respond_to do |format|
-      if @article.update_attributes(params.require(:article).permit!)
-        format.html { redirect_to admin_articles_url, notice: 'Article was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+    if @article.update_attributes(params.require(:article).permit!)
+      redirect_to admin_articles_url, success: 'Makale kaydı güncellendi'
+    else
+      render :edit
     end
   end
 
-  # DELETE /articles/1
-  # DELETE /articles/1.json
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
 
-    respond_to do |format|
-      format.html { redirect_to admin_articles_url }
-      format.json { head :no_content }
-    end
+    redirect_to admin_articles_url, notice: "#{@article.name} : kaydı silindi."
+
   end
+
+  private
+    def set_language
+      @languages = Language.all
+    end
 end

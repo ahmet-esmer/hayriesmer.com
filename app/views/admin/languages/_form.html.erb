@@ -1,33 +1,31 @@
 <%= form_for([:admin, @admin_language]) do |f| %>
-  <% if @admin_language.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@admin_language.errors.count, "error") %> prohibited this admin_language from being saved:</h2>
+    <%= render 'admin/partials/form_errors', object: @admin_language %>
 
-      <ul>
-      <% @admin_language.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class =>'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :code %><br>
-    <%= f.text_field :code %>
+    <%= f.text_field :code, :class =>'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :icon %><br>
-    <%= f.text_field :icon %>
+    <%= f.text_field :icon, :class =>'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :is_active %><br>
     <%= f.check_box :is_active %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group, ">
+
+    <%= link_to admin_languages_path, class: 'btn btn-default' do %>
+        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span> Geri
+    <% end %>
+
+    <%= button_tag(type: 'submit', class: 'btn btn-small btn-success') do %>
+        <span class="glyphicon glyphicon-saved" aria-hidden="true"></span> Kaydet
+    <% end %>
+
   </div>
 <% end %>

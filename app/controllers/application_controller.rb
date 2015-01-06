@@ -9,8 +9,20 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authorize
+    I18n.default_locale = :tr
     redirect_to login_url, alert: "Not authorized" if current_user.nil?
   end
 
+  def redirect_to(options = {}, response_status = {})
+    if success = response_status.delete(:success)
+      flash[:success] = success
+    end
+
+    if error = response_status.delete(:error)
+      flash[:error] = error
+    end
+
+    super(options, response_status)
+  end
 
 end

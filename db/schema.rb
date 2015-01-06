@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141230223956) do
+ActiveRecord::Schema.define(version: 20150106171600) do
 
   create_table "articles", force: true do |t|
     t.string   "name"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title",       limit: 200
+    t.string   "description", limit: 300
+    t.string   "keywords",    limit: 300
+    t.integer  "view_count"
+    t.integer  "order"
+    t.integer  "language_id"
   end
 
   create_table "ckeditor_assets", force: true do |t|
@@ -42,6 +48,16 @@ ActiveRecord::Schema.define(version: 20141230223956) do
     t.string  "icon",      limit: 25
     t.boolean "is_active"
   end
+
+  create_table "links", force: true do |t|
+    t.string  "text",        limit: 100
+    t.string  "href",        limit: 500
+    t.integer "order"
+    t.boolean "is_active"
+    t.integer "language_id"
+  end
+
+  add_index "links", ["language_id"], name: "index_links_on_language_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "user_name",       limit: 25

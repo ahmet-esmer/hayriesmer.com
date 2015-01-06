@@ -1,0 +1,42 @@
+
+<% content_for(:breadcrumb) do
+  render 'admin/partials/breadcrumb', page_name: 'Linkler', icon:'list'
+end %>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-hover table-striped">
+    <thead>
+    <tr>
+      <th>Text</th>
+      <th>Href</th>
+      <th>Sıra</th>
+      <th>Durum</th>
+      <th>Dil</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_links.each do |link| %>
+      <tr>
+        <td><%= link.text %></td>
+        <td><%= link.href %></td>
+        <td><%= link.order %></td>
+        <td><%= link.is_active %></td>
+        <td><%= link.language.name %></td>
+
+        <td><%= link_to 'Detay',  admin_link_path(link)  %></td>
+        <td><%= link_to 'Düzenle', edit_admin_link_path(link) %></td>
+        <td><%= link_to 'Sil', admin_link_path(link), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<%= link_to new_admin_link_path , class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    Yeni Link
+<% end %>
+

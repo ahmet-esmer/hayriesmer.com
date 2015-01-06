@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @admin_link.text %>
+</p>
+
+<p>
+  <strong>Href:</strong>
+  <%= @admin_link.href %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @admin_link.order %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @admin_link.is_active %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @admin_link.language_id %>
+</p>
+
+<%= link_to 'Edit', edit_admin_link_path(@admin_link) %> |
+<%= link_to 'Back', admin_links_path %>

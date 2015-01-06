@@ -11,5 +11,13 @@
 </p>
 
 
-<%= link_to 'Edit', edit_admin_article_path(@article) %> |
-<%= link_to 'Back', admin_articles_path %>
+
+<%= link_to admin_articles_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span> Geri
+<% end %>
+
+<%= link_to edit_admin_article_path(@article) , class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Düzenle
+<% end %>
+
+

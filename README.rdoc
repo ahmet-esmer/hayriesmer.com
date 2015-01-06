@@ -4,13 +4,22 @@ CONTROL VE VİEW OLUŞTURMA
 rails generate controller Users new create destroy
 rails generate scaffold_controller admin/Language  name:string{25} code:string{5} icon:string{25} is_active:boolean --skip-jbuilder
 
+rails generate scaffold_controller admin/Links text:string{100} href:string{500} order:integer is_active:boolean language_id:integer --skip-jbuilder
+
+rails destroy scaffold_controller admin/Links text:string{100} href:string{500} order:integer is_active:boolean language:references
+
+
+rails generate
+
 
 MODEL OLUŞTURMA
 rails generate model Language --migration=false
 
 
 VERİTABANI MODELİ OLUŞTURMA
-rails generate migration  CreateLanguage name:string{25} code:string{5} icon:string{25} is_active:boolean
+rails generate migration CreateLanguage name:string{25} code:string{5} icon:string{25} is_active:boolean
+rails generate migration CreateLinks text:string{100} href:string{500} order:integer is_active:boolean language:references
+
 --force //aynı migationu tekrar çalıştırmak tabloyada eklemek gerekiyı 'force:true' şeklinde
 
 TABLOYA COLON EKLEME
@@ -22,13 +31,21 @@ rails generate migration RemoveIsActivFromTablo IsActiv:bool
 TABLO DEGİŞİKLİK
 rails generate migration ChangeTablo
 
+COLON EKLEME
+rails generate migration AddLanguage_idToArticles language_id:integer
+
+rails g migration add_user_id_to_tester user_id:integer
+
+
 EN SON DB İŞLEMİNİ GERİ ALMAK
+rake db:migrate    VERSION=20150103154023
 rake db:rollback STEP=2
 rake db:migrate:redo
 
 
 YAYINLAMA
 
+rake assets:precompile
 $ git add .
 $ git commit -am "make it better"
 $ git push heroku master

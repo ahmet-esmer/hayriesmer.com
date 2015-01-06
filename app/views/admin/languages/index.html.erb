@@ -1,11 +1,15 @@
-<h1>Diller</h1>
+
+<% content_for(:breadcrumb) do
+  render 'admin/partials/breadcrumb', page_name: 'Diller', icon:'list'
+end %>
+
   <div class="table-responsive">
     <table class="table table-bordered table-hover table-striped">
       <thead>
       <tr>
-        <th>Adı</th>
-        <th>Code</th>
-        <th>Icon</th>
+        <th>Dil AAdı</th>
+        <th>Dil Kodu</th>
+        <th>İcon</th>
         <th>Durum</th>
         <th colspan="3"></th>
       </tr>
@@ -26,4 +30,9 @@
     </table>
   </div>
 <br>
-<%= link_to 'Yeni Dil', new_admin_language_path %>
+
+<%= link_to new_admin_language_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    Yeni Dil
+<% end %>
+

@@ -1,5 +1,7 @@
-<h1>New article</h1>
+
+<% content_for(:breadcrumb) do
+  render 'admin/partials/breadcrumb', page_name: 'Yeni Makale', icon:'edit'
+end %>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', articles_path %>

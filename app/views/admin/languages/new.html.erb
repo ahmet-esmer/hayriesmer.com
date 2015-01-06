@@ -1,5 +1,8 @@
-<h1>New admin_language</h1>
+
+<% content_for(:breadcrumb) do
+  render 'admin/partials/breadcrumb', page_name: 'Yeni Dil', icon:'edit'
+end %>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', admin_languages_path %>
+
