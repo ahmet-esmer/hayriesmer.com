@@ -237,3 +237,4 @@ tr:
         href: Adres
         order: Sıra
         is_active: Durum
+        language_id: Dil

@@ -21,8 +21,6 @@ module HayriEsmer
     # config.i18n.default_locale = :de
 
 
-    #config.assets.paths << "#{Rails}/vendor/assets/fonts"
-
   end
 
 
