@@ -2,9 +2,9 @@
 <html>
 <head>
   <title>HE Admin</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag  "application-admin", :media => "all" %>
 
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application-admin" %>
   <%= csrf_meta_tags %>
 </head>
 <body style="background-color: #222;">
@@ -56,7 +56,7 @@
       <ul class="nav navbar-nav side-nav">
         <li>
           <%= link_to admin_articles_path do %>
-              <i class='fa fa-fw fa-wrench'></i> Makaleler
+              <i class='fa fa-fw fa-book'></i> Makaleler
           <% end %>
         </li>
 

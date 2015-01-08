@@ -1,0 +1,9 @@
+/**
+ * application-site.css
+ *
+ *= require site/style
+ *= require site/boxed
+ *= require site/colors/green
+
+ *= require_self
+ */
