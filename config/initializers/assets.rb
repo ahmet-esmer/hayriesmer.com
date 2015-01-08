@@ -13,3 +13,4 @@ Rails.application.config.assets.precompile += %w( ckeditor/* )
 # Rails.application.config.assets.precompile += %w( site/* )
 
 Rails.application.config.assets.precompile += %w( application-site.css application-admin.css application-site.js application-admin.js  )
+
