@@ -10,7 +10,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( ckeditor/* )
 
 # Klasorün altındaki dosyaları derliyor.
-# Rails.application.config.assets.precompile += %w( site/* )
+Rails.application.config.assets.precompile += %w( site/* )
 
 Rails.application.config.assets.precompile += %w( application-site.css application-admin.css application-site.js application-admin.js  )
 

@@ -44,7 +44,7 @@ rake db:migrate:redo
 
 
 YAYINLAMA
-
+rake assets:clean assets:precompile
 rake assets:precompile
 $ git add .
 $ git commit -am "make it better"
