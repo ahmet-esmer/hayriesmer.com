@@ -3,7 +3,6 @@
 <head>
   <title>Yapım Aşmasında</title>
 
-
   <%= stylesheet_link_tag  "application-site", :media => "all" %>
 
   <%= javascript_include_tag "application-site" %>
@@ -319,8 +318,18 @@
     <div class="four columns">
       <div class="footer-headline"><h4>Photo Stream</h4></div>
       <div class="flickr-widget">
-        <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=6&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=36587311@N08"></script>
+
+
+        <% @instagram.each do |instagram| %>
+            <div class="flickr_badge_image" id="flickr_badge_image2">
+              <a href="http://www.flickr.com/photos/cubagallery/15606080174/">
+                <%= image_tag instagram.images.thumbnail.url, height: '75', width: '75', alt:'test' %>
+              </a>
+            </div>
+        <% end %>
+
         <div class="clear"></div>
+
       </div>
     </div>
 
@@ -340,7 +349,7 @@
     <!-- Footer / Bottom -->
     <div class="sixteen columns">
       <div id="footer-bottom">
-        © Copyright 2014 by <a href="#">Centum</a>. All rights reserved.
+        © Copyright 2014 by <a href="#">Hayri Esmer</a>. All rights reserved.
         <div id="scroll-top-top"><a href="#"></a></div>
       </div>
     </div>

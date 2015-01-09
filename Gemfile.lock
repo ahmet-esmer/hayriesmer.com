@@ -48,8 +48,18 @@ GEM
       activemodel
     erubis (2.7.0)
     execjs (2.2.1)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.9.1)
+      faraday (>= 0.7.4, < 0.10)
+    hashie (3.3.2)
     hike (1.2.3)
     i18n (0.6.11)
+    instagram (1.1.3)
+      faraday (>= 0.7, < 0.10)
+      faraday_middleware (>= 0.8, < 0.10)
+      hashie (>= 0.4.0)
+      multi_json (~> 1.0, >= 1.0.3)
     jbuilder (2.1.3)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -62,6 +72,7 @@ GEM
     mime-types (2.3)
     minitest (5.4.2)
     multi_json (1.10.1)
+    multipart-post (2.0.0)
     mysql2 (0.3.16)
     non-stupid-digest-assets (1.0.4)
     orm_adapter (0.5.0)
@@ -135,6 +146,7 @@ DEPENDENCIES
   ckeditor
   coffee-rails (~> 4.0.0)
   email_validator
+  instagram
   jbuilder (~> 2.0)
   jquery-rails
   mysql2

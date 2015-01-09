@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+
+  def instagram_media
+    @instagram = Instagram.user_recent_media("1080343853", {:count => 9})
+  end
+
   helper_method :current_user
 
   def authorize

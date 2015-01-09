@@ -33,4 +33,7 @@ gem 'paperclip'
 
 gem 'non-stupid-digest-assets', '~> 1.0.4'
 
+gem 'instagram'
+
+
 

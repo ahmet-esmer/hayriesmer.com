@@ -1,5 +1,6 @@
 HayriEsmer::Application.routes.draw do
 
+
   mount Ckeditor::Engine => '/ckeditor'
   resources :articles, only: [:index]
 
@@ -18,7 +19,8 @@ HayriEsmer::Application.routes.draw do
     resources :links
   end
 
-  root to: 'articles#index'
+  root :to => "home#index"
+  #root to: 'articles#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
