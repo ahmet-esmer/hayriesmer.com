@@ -1,6 +1,6 @@
 class Admin::LinksController < ApplicationController
 
-  layout "admin"
+  layout "application_admin"
   before_action :set_admin_link, only: [:show, :edit, :update, :destroy]
   before_action :set_language, only: [:new, :edit, :update, :create]
   before_filter :authorize

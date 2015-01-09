@@ -6,12 +6,15 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  helper_method :current_user
+
+  helper_method :instagram_media
 
   def instagram_media
-    @instagram = Instagram.user_recent_media("1080343853", {:count => 9})
+    @instagram = Instagram.user_recent_media("1080343853", {:count => 6})
   end
 
-  helper_method :current_user
+
 
   def authorize
     I18n.default_locale = :tr

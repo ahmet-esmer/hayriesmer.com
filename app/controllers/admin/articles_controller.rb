@@ -1,6 +1,6 @@
 class Admin::ArticlesController < ApplicationController
 
-  layout "admin"
+  layout "application_admin"
   before_filter :authorize
   before_action :set_language, only: [:new, :edit, :update, :create]
 

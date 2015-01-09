@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
 
   before_filter :authorize
 
-  layout "admin"
+  layout "application_admin"
 
   def index
     @users = User.all

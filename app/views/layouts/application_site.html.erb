@@ -3,8 +3,17 @@
 <head>
   <title>Yapım Aşmasında</title>
 
+
+  <!-- Mobile Specific
+================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- CSS
+================================================== -->
   <%= stylesheet_link_tag  "application-site", :media => "all" %>
 
+  <!-- Java Script
+================================================== -->
   <%= javascript_include_tag "application-site" %>
 
 </head>
@@ -316,13 +325,11 @@
 
     <!-- Photo Stream -->
     <div class="four columns">
-      <div class="footer-headline"><h4>Photo Stream</h4></div>
+      <div class="footer-headline"><h4>Instagram</h4></div>
       <div class="flickr-widget">
-
-
-        <% @instagram.each do |instagram| %>
-            <div class="flickr_badge_image" id="flickr_badge_image2">
-              <a href="http://www.flickr.com/photos/cubagallery/15606080174/">
+        <% instagram_media.each do |instagram| %>
+            <div class="flickr_badge_image" >
+              <a href="<%= instagram.link %>" target="_blank" >
                 <%= image_tag instagram.images.thumbnail.url, height: '75', width: '75', alt:'test' %>
               </a>
             </div>

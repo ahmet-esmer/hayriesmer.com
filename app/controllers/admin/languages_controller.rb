@@ -1,6 +1,6 @@
 class Admin::LanguagesController < ApplicationController
 
-  layout "admin"
+  layout "application_admin"
   before_action :set_admin_language, only: [:show, :edit, :update, :destroy]
   before_filter :authorize
 
