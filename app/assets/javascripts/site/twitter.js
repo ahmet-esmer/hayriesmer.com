@@ -21,18 +21,30 @@ function relative_time(time_value) {
   delta = delta + (relative_to.getTimezoneOffset() * 60);
 
   if (delta < 60) {
-    return 'less than a minute ago';
+    return 'bir dakikadan daha az';
   } else if(delta < 120) {
-    return 'about a minute ago';
+    return 'yaklaşık bir dakika önce';
   } else if(delta < (60*60)) {
-    return (parseInt(delta / 60)).toString() + ' minutes ago';
+    return (parseInt(delta / 60)).toString() + ' dakika önce';
   } else if(delta < (120*60)) {
-    return 'about an hour ago';
+    return 'yaklaşık bir saat önce';
   } else if(delta < (24*60*60)) {
-    return 'about ' + (parseInt(delta / 3600)).toString() + ' hours ago';
+    return 'yaklaşık ' + (parseInt(delta / 3600)).toString() + ' saat önce';
   } else if(delta < (48*60*60)) {
     return '1 day ago';
   } else {
-    return (parseInt(delta / 86400)).toString() + ' days ago';
+    return (parseInt(delta / 86400)).toString() + ' gün önce';
   }
+}
+
+function tz_format_instagram(instagram) {
+    var statusHTML = [];
+    for (var i=0; i<instagram.length; i++){
+        statusHTML.push('<div class="flickr_badge_image" >');
+        statusHTML.push('<a href="' + instagram[i].link + '" target="_blank" >');
+        statusHTML.push('<img alt="test" height="75" src="'+ instagram[i].images.thumbnail.url +'" width="75">')
+        statusHTML.push('</a>')
+        statusHTML.push('</div>')
+    }
+    return statusHTML.join('');
 }

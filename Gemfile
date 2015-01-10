@@ -35,5 +35,8 @@ gem 'non-stupid-digest-assets', '~> 1.0.4'
 
 gem 'instagram'
 
+gem 'twitter'
+
+
 
 

@@ -326,17 +326,14 @@
     <!-- Photo Stream -->
     <div class="four columns">
       <div class="footer-headline"><h4>Instagram</h4></div>
-      <div class="flickr-widget">
-        <% instagram_media.each do |instagram| %>
-            <div class="flickr_badge_image" >
-              <a href="<%= instagram.link %>" target="_blank" >
-                <%= image_tag instagram.images.thumbnail.url, height: '75', width: '75', alt:'test' %>
-              </a>
-            </div>
-        <% end %>
-
+      <div id="instagram" class="flickr-widget">
+        <script type="text/javascript">
+            jQuery(document).ready(function($){
+                $.getJSON('/instagram', function(instagram){
+                    $("#instagram").html(tz_format_instagram(instagram));
+                }); });
+        </script>
         <div class="clear"></div>
-
       </div>
     </div>
 
@@ -344,12 +341,13 @@
     <div class="four columns">
       <div class="footer-headline"><h4>Latest Tweets</h4></div>
       <ul id="twitter"></ul>
-     <!-- <script type="text/javascript">
+
+     <script type="text/javascript">
           jQuery(document).ready(function($){
-              $.getJSON('twitter.php?url='+encodeURIComponent('statuses/user_timeline.json?screen_name=Vasterad&count=2'), function(tweets){
+              $.getJSON('/twitter', function(tweets){
                   $("#twitter").html(tz_format_twitter(tweets));
               }); });
-      </script> -->
+      </script>
       <div class="clear"></div>
     </div>
 

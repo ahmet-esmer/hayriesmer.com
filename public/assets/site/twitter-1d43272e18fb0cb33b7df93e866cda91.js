@@ -21,19 +21,19 @@ function relative_time(time_value) {
   delta = delta + (relative_to.getTimezoneOffset() * 60);
 
   if (delta < 60) {
-    return 'bir dakikadan daha az';
+    return 'less than a minute ago';
   } else if(delta < 120) {
-    return 'yaklaşık bir dakika önce';
+    return 'about a minute ago';
   } else if(delta < (60*60)) {
-    return (parseInt(delta / 60)).toString() + ' dakika önce';
+    return (parseInt(delta / 60)).toString() + ' minutes ago';
   } else if(delta < (120*60)) {
-    return 'yaklaşık bir saat önce';
+    return 'about an hour ago';
   } else if(delta < (24*60*60)) {
-    return 'yaklaşık ' + (parseInt(delta / 3600)).toString() + ' saat önce';
+    return 'about ' + (parseInt(delta / 3600)).toString() + ' hours ago';
   } else if(delta < (48*60*60)) {
     return '1 day ago';
   } else {
-    return (parseInt(delta / 86400)).toString() + ' gün önce';
+    return (parseInt(delta / 86400)).toString() + ' days ago';
   }
 }
 

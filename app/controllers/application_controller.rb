@@ -8,13 +8,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  helper_method :instagram_media
-
-  def instagram_media
-    @instagram = Instagram.user_recent_media("1080343853", {:count => 6})
-  end
-
-
 
   def authorize
     I18n.default_locale = :tr

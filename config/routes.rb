@@ -8,6 +8,9 @@ HayriEsmer::Application.routes.draw do
   get 'login',  to: 'sessions#new',     as: :login
   get 'logout', to: 'sessions#destroy', as: :logout
 
+  get 'twitter',   to: 'social_media#twitter', as: :twitter_path
+  get 'instagram', to: 'social_media#instagram',   as: :instagram_path
+
   resources :users
   resources :sessions
 
