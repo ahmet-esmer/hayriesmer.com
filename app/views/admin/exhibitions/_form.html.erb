@@ -1,0 +1,62 @@
+<%= form_for([:admin, @admin_exhibition]) do |f| %>
+    <%= render 'admin/partials/form_errors', object: @admin_exhibition %>
+
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= f.label :title_tr %><br>
+        <%= f.text_field :title_tr, :class =>'form-control' %>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= f.label :title_en %><br>
+        <%= f.text_field :title_en, :class =>'form-control' %>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= f.label :text_tr %><br>
+        <%= f.text_field :text_tr, :class =>'form-control' %>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= f.label :text_en %><br>
+        <%= f.text_field :text_en, :class =>'form-control' %>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= f.label :start_at %><br>
+        <%= f.date_select :start_at, {:order => [:day, :month, :year], :start_year => 1990}, {:class => 'selectpicker'} %>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= f.label :end_at %><br>
+        <%= f.date_select :end_at, {:order => [:day, :month, :year], :start_year => 1990}, {:class => 'selectpicker'} %>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= f.label :is_individual %><br>
+        <%= f.check_box :is_individual %>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= f.label :is_active %><br>
+        <%= f.check_box :is_active %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= link_to admin_exhibitions_path, class: 'btn btn-default' do %>
+          <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span> Geri
+      <% end %>
+
+      <%= button_tag(type: 'submit', class: 'btn btn-small btn-success') do %>
+          <span class="glyphicon glyphicon-saved" aria-hidden="true"></span> Kaydet
+      <% end %>
+    </div>
+<% end %>

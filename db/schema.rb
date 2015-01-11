@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150106171600) do
+ActiveRecord::Schema.define(version: 20150111171316) do
 
   create_table "articles", force: true do |t|
     t.string   "name"
@@ -25,6 +25,21 @@ ActiveRecord::Schema.define(version: 20150106171600) do
     t.integer  "order"
     t.integer  "language_id"
   end
+
+  create_table "carousels", force: true do |t|
+    t.string   "title",              limit: 60
+    t.string   "text",               limit: 500
+    t.string   "href",               limit: 500
+    t.integer  "order"
+    t.boolean  "is_active"
+    t.integer  "language_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  add_index "carousels", ["language_id"], name: "index_carousels_on_language_id", using: :btree
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -42,6 +57,31 @@ ActiveRecord::Schema.define(version: 20150106171600) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
+  create_table "exhibition_works", force: true do |t|
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "title",              limit: 100
+    t.boolean  "is_active"
+    t.integer  "exhibition_id"
+  end
+
+  add_index "exhibition_works", ["exhibition_id"], name: "index_exhibition_works_on_exhibition_id", using: :btree
+
+  create_table "exhibitions", force: true do |t|
+    t.string   "title_tr",      limit: 60
+    t.string   "title_en",      limit: 60
+    t.string   "text_tr",       limit: 500
+    t.string   "text_en",       limit: 500
+    t.date     "start_at"
+    t.date     "end_at"
+    t.boolean  "is_individual"
+    t.boolean  "is_active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "languages", force: true do |t|
     t.string  "name",      limit: 25
     t.string  "code",      limit: 5
@@ -58,6 +98,15 @@ ActiveRecord::Schema.define(version: 20150106171600) do
   end
 
   add_index "links", ["language_id"], name: "index_links_on_language_id", using: :btree
+
+  create_table "types", force: true do |t|
+    t.string  "code",        limit: 100
+    t.text    "text"
+    t.boolean "is_active"
+    t.integer "language_id"
+  end
+
+  add_index "types", ["language_id"], name: "index_types_on_language_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "user_name",       limit: 25

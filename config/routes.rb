@@ -20,6 +20,14 @@ HayriEsmer::Application.routes.draw do
     resources :users
     resources :languages
     resources :links
+    resources :types
+    resources :carousels
+    resources :exhibitions
+    #resources :exhibition_works
+
+    resources :exhibitions do
+      resources :photos, :controller => "exhibition_works"
+    end
   end
 
   root :to => "home#index"

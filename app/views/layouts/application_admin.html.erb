@@ -54,6 +54,19 @@
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav side-nav">
+
+        <li>
+          <%= link_to admin_exhibitions_path do %>
+              <i class='fa fa-fw fa-film'></i> Sergiler
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to admin_carousels_path do %>
+              <i class='fa fa-fw fa-th-large'></i> Carousel
+          <% end %>
+        </li>
+
         <li>
           <%= link_to admin_articles_path do %>
               <i class='fa fa-fw fa-book'></i> Makaleler
@@ -74,6 +87,11 @@
         <li>
           <%= link_to admin_users_path do %>
               <i class='fa fa-users'></i> Kullanıcılar
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_types_path do %>
+              <i class='fa fa-cog'></i> Tipler
           <% end %>
         </li>
       </ul>

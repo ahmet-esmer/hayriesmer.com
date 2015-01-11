@@ -214,6 +214,10 @@ tr:
         zero:link
         one:link
         other:linkler
+      Type:
+        zero:Tip
+        one:Tip
+        other:Tipler
     attributes:
       user:
         user_name: Kullanıcı adı
@@ -238,3 +242,25 @@ tr:
         order: Sıra
         is_active: Durum
         language_id: Dil
+      type:
+        code: Tip Kodu
+        text: İçerik
+        language_id: Dil
+        is_active: Durum
+      carousel:
+        title: Başlık
+        text: İçerik
+        href: Link
+        order: Sıra
+        is_active: Durum
+        language_id: Dil
+      exhibition:
+       title_tr: Türkçe Başlık
+       title_en: İngilizce Başlık
+       text_tr: Türkçe İçerik
+       text_en: İngilizce İçerik
+       start_at: Sergi Başlangıç Tarihi
+       end_at: Sergi Bitiş Tarihi
+       is_individual : Kişisel Sergi
+       is_active: Durum
+

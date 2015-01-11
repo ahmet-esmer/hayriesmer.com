@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @admin_carousel.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @admin_carousel.text %>
+</p>
+
+<p>
+  <strong>Href:</strong>
+  <%= @admin_carousel.href %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @admin_carousel.order %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @admin_carousel.is_active %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @admin_carousel.language_id %>
+</p>
+
+<%= link_to 'Edit', edit_admin_carousel_path(@admin_carousel) %> |
+<%= link_to 'Back', admin_carousels_path %>

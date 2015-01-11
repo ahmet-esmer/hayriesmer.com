@@ -1,0 +1,44 @@
+<% content_for(:breadcrumb) do
+  render 'admin/partials/breadcrumb', page_name: 'Carousel', icon:'list'
+end %>
+<div class="table-responsive">
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Başlık</th>
+      <th>İçerik</th>
+      <th>Link</th>
+      <th>Sıra</th>
+      <th>Durum</th>
+      <th>Dil</th>
+      <th>Resim</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_carousels.each do |carousel| %>
+      <tr>
+        <td><%= carousel.title %></td>
+        <td><%= carousel.text %></td>
+        <td><%= carousel.href %></td>
+        <td><%= carousel.order %></td>
+        <td><%= carousel.is_active %></td>
+        <td><%= carousel.language.name %></td>
+        <td><%= image_tag carousel.photo.url(:thumb) %></td>
+        <td><%= link_to 'Detay',  admin_carousel_path(carousel) %></td>
+        <td><%= link_to 'Düzenle', edit_admin_carousel_path(carousel) %></td>
+        <td><%= link_to 'Sil', admin_carousel_path(carousel), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+
+<%= link_to new_admin_carousel_path , class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    Yeni Carusel
+<% end %>
+

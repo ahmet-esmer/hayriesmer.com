@@ -1,0 +1,38 @@
+<% content_for(:breadcrumb) do
+  render 'admin/partials/breadcrumb', page_name: 'Tipler', icon:'list'
+end %>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-hover table-striped" >
+    <thead>
+    <tr>
+      <th>Tip Kodu</th>
+      <th>İçerik</th>
+      <th>Durum</th>
+      <th>Dil</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @admin_types.each do |type| %>
+        <tr>
+          <td><%= type.code %></td>
+          <td><%= truncate(type.text, :length => 60, :separator => ' ')  %></td>
+          <td><%= type.is_active %></td>
+          <td><%= type.language.name %></td>
+          <td><%= link_to 'Detay',  admin_type_path(type) %></td>
+          <td><%= link_to 'Düzenle', edit_admin_type_path(type) %></td>
+          <td><%= link_to 'Sil', admin_type_path(type), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+<%= link_to new_admin_type_path , class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    Yeni Tip
+<% end %>
+

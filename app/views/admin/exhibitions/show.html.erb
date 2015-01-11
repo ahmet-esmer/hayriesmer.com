@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title tr:</strong>
+  <%= @admin_exhibition.title_tr %>
+</p>
+
+<p>
+  <strong>Title en:</strong>
+  <%= @admin_exhibition.title_en %>
+</p>
+
+<p>
+  <strong>Text tr:</strong>
+  <%= @admin_exhibition.text_tr %>
+</p>
+
+<p>
+  <strong>Text en:</strong>
+  <%= @admin_exhibition.text_en %>
+</p>
+
+<p>
+  <strong>Start at:</strong>
+  <%= @admin_exhibition.start_at %>
+</p>
+
+<p>
+  <strong>End at:</strong>
+  <%= @admin_exhibition.end_at %>
+</p>
+
+<p>
+  <strong>Is individual:</strong>
+  <%= @admin_exhibition.is_individual %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @admin_exhibition.is_active %>
+</p>
+
+<%= link_to 'Edit', edit_admin_exhibition_path(@admin_exhibition) %> |
+<%= link_to 'Back', admin_exhibitions_path %>

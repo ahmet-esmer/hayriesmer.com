@@ -1,0 +1,46 @@
+
+<%= form_for([:admin, @admin_carousel], :html => { :multipart => true } ) do |f| %>
+
+    <%= render 'admin/partials/form_errors', object: @admin_carousel %>
+
+
+    <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, :class =>'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :text %><br>
+    <%= f.text_field :text, :class =>'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :href %><br>
+    <%= f.text_field :href, :class =>'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :order %><br>
+    <%= f.number_field :order, :class =>'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :is_active %><br>
+    <%= f.check_box :is_active %>
+  </div>
+    <div class="form-group">
+      <%= f.label :language_id %>
+      <%= f.collection_select(:language_id, @languages, :id, :name, {}, {class: "form-control"}) %>
+    </div>
+
+    <div class="form-group" >
+      <%= f.file_field :photo %>
+
+    </div>
+
+    <div class="form-group">
+      <%= link_to admin_carousels_path, class: 'btn btn-default' do %>
+          <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span> Geri
+      <% end %>
+
+      <%= button_tag(type: 'submit', class: 'btn btn-small btn-success') do %>
+          <span class="glyphicon glyphicon-saved" aria-hidden="true"></span> Kaydet
+      <% end %>
+    </div>
+<% end %>

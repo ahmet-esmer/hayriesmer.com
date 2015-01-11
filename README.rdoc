@@ -3,30 +3,48 @@
 CONTROL VE VİEW OLUŞTURMA
 rails generate controller Users new create destroy
 rails generate scaffold_controller admin/Language  name:string{25} code:string{5} icon:string{25} is_active:boolean --skip-jbuilder
-
 rails generate scaffold_controller admin/Links text:string{100} href:string{500} order:integer is_active:boolean language_id:integer --skip-jbuilder
-
 rails destroy scaffold_controller admin/Links text:string{100} href:string{500} order:integer is_active:boolean language:references
-
-
 rails generate scaffold_controller SocialMedia
+rails generate scaffold_controller admin/Types code:string{100} text:text is_active:boolean language_id:integer
 
+rails generate scaffold_controller admin/ExhibitionWorks title:string{100} is_active:boolean --skip-jbuilder
+
+rails generate scaffold_controller admin/Carousels title:string{60} text:string{500} href:string{500} order:integer is_active:boolean language_id:integer --skip-jbuilder
 
 MODEL OLUŞTURMA
 rails generate model Language --migration=false
+rails generate model Carousel --migration=false
+rails generate model Exhibition --migration=false
 
+rails generate model ExhibitionWork --migration=false
 
 VERİTABANI MODELİ OLUŞTURMA
 rails generate migration CreateLanguage name:string{25} code:string{5} icon:string{25} is_active:boolean
 rails generate migration CreateLinks text:string{100} href:string{500} order:integer is_active:boolean language:references
+rails generate migration CreateTypes code:string{100} text:text is_active:boolean language:references
+rails generate migration CreateCarousels title:string{60} text:string{500} href:string{500} order:integer is_active:boolean language:references
+rails destroy migration CreateCarousel title:string{60} text:string{500} href:string{500} order:integer is_active:boolean language:references
+
+rails generate migration CreateExhibitions title_tr:string{60} title_en:string{60} text_tr:string{500} text_en:string{500} start_at:date end_at:date is_individual:boolean is_active:boolean
+
+rails generate migration CreateExhibitionWorks title:string{100} is_active:boolean
+
+
+      t.string :title, limit: 100
+      t.boolean :is_active
+      t.references :exhibition, index: true
+
 
 --force //aynı migationu tekrar çalıştırmak tabloyada eklemek gerekiyı 'force:true' şeklinde
 
 TABLOYA COLON EKLEME
 rails generate migration AddIsActivToTabla IsActiv:bool
+rails generate migration AddPhotoToCarousels
 
 TABLODAN COLON SILME
-rails generate migration RemoveIsActivFromTablo IsActiv:bool
+rails generate migration RemoveIsActivFromTablo IsActiv:
+
 
 TABLO DEGİŞİKLİK
 rails generate migration ChangeTablo
@@ -55,6 +73,11 @@ heroku run rake db:migrate
 
 LOG TEMİZLEME
 rake log:clear
+rake tmp:clear
+
+
+IMAGES
+rails generate paperclip carousels photo
 
 
 

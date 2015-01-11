@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @admin_type.code %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @admin_type.text %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @admin_type.is_active %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @admin_type.language_id %>
+</p>
+
+<%= link_to 'Edit', edit_admin_type_path(@admin_type) %> |
+<%= link_to 'Back', admin_types_path %>
