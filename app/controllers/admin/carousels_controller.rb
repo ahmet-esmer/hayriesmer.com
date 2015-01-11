@@ -30,7 +30,7 @@ class Admin::CarouselsController < ApplicationController
 
     @admin_carousel = Carousel.new(admin_carousel_params)
     if @admin_carousel.save
-      redirect_to admin_carousels_url, success: 'Kayıt oluşturuldu.'
+      redirect_to admin_carousels_url, success: 'Kayıt başarı ile oluşturuldu.'
     else
       render :new
     end
@@ -40,7 +40,7 @@ class Admin::CarouselsController < ApplicationController
   # PATCH/PUT /admin/carousels/1
   def update
     if  @admin_carousel.update(admin_carousel_params)
-      redirect_to admin_carousels_url, success: 'Kayıt güncellendi'
+      redirect_to admin_carousels_url, success: 'Kayıt başarı ile güncellendi'
     else
       render :edit
     end

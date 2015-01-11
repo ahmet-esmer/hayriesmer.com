@@ -23,7 +23,7 @@ HayriEsmer::Application.routes.draw do
     resources :types
     resources :carousels
     resources :exhibitions
-    #resources :exhibition_works
+    resources :recent_works
 
     resources :exhibitions do
       resources :photos, :controller => "exhibition_works"

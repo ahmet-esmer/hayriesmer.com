@@ -9,7 +9,7 @@ class Admin::ExhibitionWorksController < ApplicationController
 
 
   def index
-    @admin_exhibition_works = ExhibitionWork.all
+    @admin_exhibition_works = ExhibitionWork.where(exhibition_id: @exhibition.id).all
   end
 
   def show

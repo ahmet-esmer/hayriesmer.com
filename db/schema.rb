@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111171316) do
+ActiveRecord::Schema.define(version: 20150111230528) do
 
   create_table "articles", force: true do |t|
     t.string   "name"
@@ -98,6 +98,21 @@ ActiveRecord::Schema.define(version: 20150111171316) do
   end
 
   add_index "links", ["language_id"], name: "index_links_on_language_id", using: :btree
+
+  create_table "recent_works", force: true do |t|
+    t.string   "title",              limit: 60
+    t.string   "text",               limit: 500
+    t.string   "href",               limit: 500
+    t.integer  "order"
+    t.boolean  "is_active"
+    t.integer  "language_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  add_index "recent_works", ["language_id"], name: "index_recent_works_on_language_id", using: :btree
 
   create_table "types", force: true do |t|
     t.string  "code",        limit: 100

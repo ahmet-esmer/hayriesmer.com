@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @admin_recent_work.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @admin_recent_work.text %>
+</p>
+
+<p>
+  <strong>Href:</strong>
+  <%= @admin_recent_work.href %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @admin_recent_work.order %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @admin_recent_work.is_active %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @admin_recent_work.language_id %>
+</p>
+
+<%= link_to 'Edit', edit_admin_recent_work_path(@admin_recent_work) %> |
+<%= link_to 'Back', admin_recent_works_path %>

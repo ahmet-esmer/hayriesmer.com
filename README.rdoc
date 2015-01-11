@@ -7,17 +7,20 @@ rails generate scaffold_controller admin/Links text:string{100} href:string{500}
 rails destroy scaffold_controller admin/Links text:string{100} href:string{500} order:integer is_active:boolean language:references
 rails generate scaffold_controller SocialMedia
 rails generate scaffold_controller admin/Types code:string{100} text:text is_active:boolean language_id:integer
-
 rails generate scaffold_controller admin/ExhibitionWorks title:string{100} is_active:boolean --skip-jbuilder
-
 rails generate scaffold_controller admin/Carousels title:string{60} text:string{500} href:string{500} order:integer is_active:boolean language_id:integer --skip-jbuilder
+rails generate scaffold_controller admin/RecentWorks title:string{60} text:string{500} href:string{500} order:integer is_active:boolean language_id:integer --skip-jbuilder
+
+
 
 MODEL OLUŞTURMA
 rails generate model Language --migration=false
 rails generate model Carousel --migration=false
 rails generate model Exhibition --migration=false
-
 rails generate model ExhibitionWork --migration=false
+
+rails generate model RecentWork --migration=false
+
 
 VERİTABANI MODELİ OLUŞTURMA
 rails generate migration CreateLanguage name:string{25} code:string{5} icon:string{25} is_active:boolean
@@ -30,10 +33,7 @@ rails generate migration CreateExhibitions title_tr:string{60} title_en:string{6
 
 rails generate migration CreateExhibitionWorks title:string{100} is_active:boolean
 
-
-      t.string :title, limit: 100
-      t.boolean :is_active
-      t.references :exhibition, index: true
+rails generate migration CreateRecentWorks title:string{60} text:string{500} href:string{500} order:integer is_active:boolean language:references
 
 
 --force //aynı migationu tekrar çalıştırmak tabloyada eklemek gerekiyı 'force:true' şeklinde

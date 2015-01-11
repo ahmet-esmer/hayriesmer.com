@@ -255,12 +255,20 @@ tr:
         is_active: Durum
         language_id: Dil
       exhibition:
-       title_tr: Türkçe Başlık
-       title_en: İngilizce Başlık
-       text_tr: Türkçe İçerik
-       text_en: İngilizce İçerik
-       start_at: Sergi Başlangıç Tarihi
-       end_at: Sergi Bitiş Tarihi
-       is_individual : Kişisel Sergi
-       is_active: Durum
+        title_tr: Türkçe Başlık
+        title_en: İngilizce Başlık
+        text_tr: Türkçe İçerik
+        text_en: İngilizce İçerik
+        start_at: Sergi Başlangıç Tarihi
+        end_at: Sergi Bitiş Tarihi
+        is_individual : Kişisel Sergi
+        is_active: Durum
+      recent_work:
+        title: Başlık
+        text: İçerik
+        href: URL
+        order: Sıra
+        is_active: Durum
+        language: Dil
+        photo: Resim
 
