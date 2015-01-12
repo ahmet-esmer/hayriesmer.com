@@ -30,7 +30,13 @@ HayriEsmer::Application.routes.draw do
     end
   end
 
-  root :to => "home#index"
+  #root :to => "home#index"
+
+  scope "(:locale)", :locale => /en|tr/ do
+    root :to => 'home#index'
+    get "home/index"
+  end
+
   #root to: 'articles#index'
 
   # The priority is based upon order of creation:

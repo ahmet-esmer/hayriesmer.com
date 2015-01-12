@@ -11,19 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111230528) do
+ActiveRecord::Schema.define(version: 20150112000256) do
 
   create_table "articles", force: true do |t|
     t.string   "name"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title",       limit: 200
-    t.string   "description", limit: 300
-    t.string   "keywords",    limit: 300
+    t.string   "title",        limit: 200
+    t.string   "description",  limit: 300
+    t.string   "keywords",     limit: 300
     t.integer  "view_count"
     t.integer  "order"
     t.integer  "language_id"
+    t.boolean  "is_published"
+    t.string   "author"
   end
 
   create_table "carousels", force: true do |t|

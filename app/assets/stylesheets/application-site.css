@@ -3,7 +3,7 @@
  *
  *= require site/style
  *= require site/boxed
- *= require site/colors/green
+ *= require site/green.css
 
  *= require_self
  */

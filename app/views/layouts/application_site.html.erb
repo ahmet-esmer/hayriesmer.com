@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Yapım Aşmasında</title>
-
+  <title>Hayri Esmer</title>
 
   <!-- Mobile Specific
 ================================================== -->
@@ -59,8 +58,8 @@
         <!-- Contact Details -->
         <div id="contact-details">
           <ul>
-            <li><i class="mini-ico-envelope"></i><a href="#">support@centum.com</a></li>
-            <li><i class="mini-ico-user"></i>+48 880 450 120</li>
+            <li><%= link_to_unless I18n.locale == :tr, "Türkçe", locale: :tr %></li>
+            <li><%= link_to_unless I18n.locale == :en, "English", locale: :en %></li>
           </ul>
         </div>
 
@@ -75,9 +74,12 @@
       <div id="navigation">
         <ul id="nav">
 
-          <li><a id="current" href="index.html">Home</a></li>
+          <li>
+            <%= link_to translate('home_page'), root_path %>
 
-          <li><a href="#">Features</a>
+           <!-- <a id="current" href="index.html">Home</a> --> </li>
+
+          <li><%= link_to translate('canvases'), admin_links_path %>
             <ul>
               <li><a href="full_width.html">Full Width</a></li>
               <li><a href="about-us.html">About Us</a></li>
@@ -85,7 +87,7 @@
               <li><a href="pricing_tables.html">Pricing Tables</a></li>
               <li><a href="flexslider.html">FlexSlider</a></li>
 
-              <li><a href="#">Page Templates</a>
+              <li><%= link_to translate('printmaking'), root_path %>
                 <ul>
                   <li><a href="sidebar_right.html">Sidebar Right</a></li>
                   <li><a href="sidebar_left.html">Sidebar Left</a></li>
@@ -96,9 +98,9 @@
             </ul>
           </li>
 
-          <li><a href="shortcodes.html">Shortcodes</a></li>
+          <li><%= link_to translate('printmaking'), root_path %></li>
 
-          <li><a href="#">Portfolio</a>
+          <li><%= link_to translate('exhibitions'), root_path %>
             <ul>
               <li><a href="portfolio_2.html">2 Columns</a></li>
               <li><a href="portfolio_3.html">3 Columns</a></li>

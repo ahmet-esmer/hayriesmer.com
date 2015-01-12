@@ -42,6 +42,9 @@ TABLOYA COLON EKLEME
 rails generate migration AddIsActivToTabla IsActiv:bool
 rails generate migration AddPhotoToCarousels
 
+rails generate migration AddAuthorToArticles
+rails generate migration AddIsPublishedToArticles
+
 TABLODAN COLON SILME
 rails generate migration RemoveIsActivFromTablo IsActiv:
 

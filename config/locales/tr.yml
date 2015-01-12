@@ -1,4 +1,8 @@
 tr:
+  home_page: "Ana Sayfa"
+  canvases: "Tuvaller"
+  printmaking: "Baskıresimleri"
+  exhibitions: "Sergiler"
   date:
     abbr_day_names:
     - Pzr
@@ -231,6 +235,8 @@ tr:
         created_at: Tarih
         body: İçerik
         language_id: Dil
+        is_published: Yayın Durumu
+        author: Yazar
       language:
         name: Dil Adı
         code: Dil Kodu
