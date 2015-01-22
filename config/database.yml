@@ -52,6 +52,6 @@ production:
   <<: *default
   adapter: postgresql
   encoding: unicode
-  database: hayri_esmer_production
-  username: hayri_esmer
-  password: 4612312
+  database: xpdwifjb_hayri_esmer_db
+  username: xpdwifjb_hayri
+  password: Ah4612312
