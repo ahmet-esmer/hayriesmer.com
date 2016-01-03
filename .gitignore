@@ -18,11 +18,12 @@
 
 
 #RubyMine ile ilgili dosyalar
-**/.idea
-**/BuildProcessTemplates/
+**/.idea/
+/BuildProcessTemplates/
 
 /app/config/environments/production.rb
 /app/config/database.yml
+/ComandScript.rdoc
 
 /BuildProcessTemplates
 .DS_Store
