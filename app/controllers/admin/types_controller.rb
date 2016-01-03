@@ -8,7 +8,7 @@ class Admin::TypesController < ApplicationController
   # GET /admin/types
   # GET /admin/types.json
   def index
-    @admin_types = Type.joins(:language).all
+    @admin_types = Type.joins(:language).order('types.code DESC').all
   end
 
   # GET /admin/types/1
@@ -19,6 +19,7 @@ class Admin::TypesController < ApplicationController
   # GET /admin/types/new
   def new
     @admin_type = Type.new
+    @admin_type.is_active = true
   end
 
   # GET /admin/types/1/edit

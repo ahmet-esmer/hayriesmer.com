@@ -1,0 +1,66 @@
+<!-- Content
+================================================== -->
+
+<!-- 960 Container -->
+<div class="container">
+
+  <div class="sixteen columns">
+
+    <!-- Page Title -->
+    <div id="page-title">
+      <h2><%=  @parentName %> <span>/ <%=  @workName %><span></span></h2>
+
+
+      <div id="filters">
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_sharing_toolbox"></div>
+      </div>
+
+      <div class="clear"></div>
+
+      <div id="bolded-line"></div>
+    </div>
+    <!-- Page Title / End -->
+  </div>
+</div>
+<!-- 960 Container / End -->
+
+<!-- 960 Container -->
+<div class="container">
+
+  <% if @work_details.any? %>
+
+      <!-- Portfolio Content -->
+      <div id="portfolio-wrapper">
+        <% @work_details.each do |work_detail| %>
+            <div class="eight column portfolio-item">
+              <div class="picture">
+                <a href="<%= work_detail.photo.url(:original) %>" rel="image" title="<%= work_detail.title %>">
+                  <%= image_tag work_detail.photo.url(:thumb) %>
+                  <div class="image-overlay-zoom"></div>
+                </a>
+              </div>
+              <div class="item-description alt">
+                <h5></h5>
+              </div>
+            </div>
+
+        <% end %>
+
+      </div>
+      <!-- End 960 Container -->
+  <% else %>
+      <div class="notification notice closeable" style="margin: 5px 0px 25px; display: block;" id="notification_1">
+        <p><span>Sayfa yapım aşamasındadır.</span> </p>
+        <a class="close" href="#"></a>
+      </div>
+      <p></p>
+  <% end%>
+
+
+  <!-- End Portfolio Content -->
+
+
+
+</div>
+<!-- Wrapper / End -->

@@ -1,270 +1,163 @@
-
-
-<!-- Heade
- ================================================== -->
-
-<!-- 960 Container -->
-<div class="container ie-dropdown-fix">
-
-  <!-- Header -->
-  <div id="header">
-
-    <!-- Logo -->
-    <div class="eight columns">
-      <div id="logo">
-        <a href="#"><img src="<%= image_path('images/logo.png') %>" alt="logo" /></a>
-        <div id="tagline">It's time to impress your visitors!</div>
-        <div class="clear"></div>
-      </div>
-    </div>
-
-    <!-- Social / Contact -->
-    <div class="eight columns">
-
-      <!-- Social Icons -->
-      <ul class="social-icons">
-        <li class="facebook"><a href="#">Facebook</a></li>
-        <li class="twitter"><a href="#">Twitter</a></li>
-        <li class="dribbble"><a href="#">Dribbble</a></li>
-        <li class="linkedin"><a href="#">LinkedIn</a></li>
-        <li class="pintrest"><a href="#">Pintrest</a></li>
-      </ul>
-
-      <div class="clear"></div>
-
-      <!-- Contact Details -->
-      <div id="contact-details">
-        <ul>
-          <li><%= link_to_unless I18n.locale == :tr, "Türkçe", locale: :tr %></li>
-          <li><%= link_to_unless I18n.locale == :en, "English", locale: :en %></li>
-        </ul>
-      </div>
-
-    </div>
-
-  </div>
-  <!-- Header / End -->
-
-  <!-- Navigation -->
-  <div class="sixteen columns">
-
-    <div id="navigation">
-      <ul id="nav">
-
-        <li>
-          <%= link_to translate('home_page'), root_path %>
-
-          <!-- <a id="current" href="index.html">Home</a> --> </li>
-
-        <li><%= link_to translate('canvases'), admin_links_path %>
-          <ul>
-            <li><a href="full_width.html">Full Width</a></li>
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="pricing_tables.html">Pricing Tables</a></li>
-            <li><a href="flexslider.html">FlexSlider</a></li>
-
-            <li><%= link_to translate('printmaking'), root_path %>
-              <ul>
-                <li><a href="sidebar_right.html">Sidebar Right</a></li>
-                <li><a href="sidebar_left.html">Sidebar Left</a></li>
-                <li><a href="blog_post.html">Single Post</a></li>
-                <li><a href="single_project.html">Single Project</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-
-        <li><%= link_to translate('printmaking'), root_path %></li>
-
-        <li><%= link_to translate('exhibitions'), root_path %>
-          <ul>
-            <li><a href="portfolio_2.html">2 Columns</a></li>
-            <li><a href="portfolio_3.html">3 Columns</a></li>
-            <li><a href="portfolio_4.html">4 Columns</a></li>
-            <li><a href="single_project.html">Single Project</a></li>
-          </ul>
-        </li>
-
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-
-      </ul>
-
-      <!-- Search Form -->
-      <div class="search-form">
-        <form method="get" action="#">
-          <input type="text" class="search-text-box" />
-        </form>
-      </div>
-
-    </div>
-    <div class="clear"></div>
-
-  </div>
-  <!-- Navigation / End -->
-
-</div>
-<!-- 960 Container / End -->
-
-
 <!-- Content
 ================================================== -->
-
-<!-- LayerSlider Container -->
-<div class="layerslider-container">
-
-  <!-- LayerSlider / Start -->
-  <div id="layerslider" style="width: 940px; height: 400px; margin: 0 auto;">
-
-    <!-- Slide #1 -->
-    <div class="ls-layer" style="transition2d: 67; timeshift: -1000; slidedelay: 7000;">
-
-      <!-- Background -->
-      <img class="ls-bg" src="<%= image_path('images/slider-img-01.jpg') %>" alt="" >
-
-      <div class="slide-caption ls-s1" style="left: 20px; top: 220px; width: 30%; slidedirection: bottom; slideoutdirection: bottom; durationin: 800; durationout: 800; delayin: 0; delayout: 0;">
-        <h3>This is a caption</h3>
-        <p>Donec scelerisque aliquet mi, non venenatis urnas iaculis. Utea id nila ante. Cras est massa, interdum  ateal imperdiet etean, gravida volutpat hendrerit posuere.</p>
-      </div>
-
-    </div>
-
-    <!-- Slide #2 -->
-    <div class="ls-layer" style="transition2d: 3; timeshift: -500; slidedelay: 7000;">
-
-      <!-- Background -->
-      <img class="ls-bg" src=" <%= path_to_image('images/slider-img-02.jpg') %>" alt="">
-
-      <div class="slide-caption alt ls-s1" style="left: 0; top: 0; height: 100%; width: 30%; slidedirection: left; slideoutdirection: left; durationin: 800; durationout: 800; delayin: 0; delayout: 0;">
-        <h3>New LayerSlider <br /> With Awesome Features</h3>
-        <p>Donec scelerisque aliquet mi, non venenatis urnas iaculis. Utea id nila ante. Cras est massa, interdum ateal imperdiet etean, gravida eu quame. Aeneana volutpat hendrerit posuere. Aliquam rutrum mattis mollis. Vestibulum a pellentesque tellus.</p>
-      </div>
-
-    </div>
-
-    <!-- Slide #3 -->
-    <div class="ls-layer" style="transition2d: 5; slidedelay: 7000;">
-
-      <!-- Background -->
-      <img class="ls-bg" src="<%= path_to_image('images/slider-img-03.jpg') %>" alt="">
-
-    </div>
-
-  </div>
-  <!-- LayerSlider / End -->
-
-</div>
-<!-- LayerSlider Container / End -->
-
-
 <!-- 960 Container -->
+
+<%= render 'partials/current_menu', menu_name: translate('home_page') %>
+
 <div class="container">
 
-  <!-- Icon Boxes -->
-  <div class="icon-box-container">
+  <!-- Flexslider -->
+  <div class="sixteen columns">
+    <section class="slider">
+      <div class="flexslider home">
+        <ul class="slides">
+          <% @carousels.each do |carousel| %>
+            <li>
 
-    <!-- Icon Box Start -->
-    <div class="one-third column">
-      <div class="icon-box">
-        <i class="ico-display" style="margin-left: -10px;"></i>
-        <h3>Fresh &amp; Clean Design</h3>
-        <p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit odio rhoncus posuere tincidunt.</p>
+              <% unless carousel.href.empty? %>
+                <a href="<%= carousel.href %>">
+                  <img class="ls-bg" src="<%= carousel.photo.url(:original) %>" alt="" >
+                </a>
+              <% else %>
+                  <img class="ls-bg" src="<%= carousel.photo.url(:original) %>" alt="" >
+              <% end %>
+
+              <% unless carousel.text.empty? %>
+                  <div class="slide-caption"  >
+                    <h3><%= carousel.title %></h3>
+                    <p><%= carousel.text %></p>
+                    <p></p>
+                  </div>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
       </div>
-    </div>
-    <!-- Icon Box End -->
-
-    <!-- Icon Box Start -->
-    <div class="one-third column">
-      <div class="icon-box">
-        <i class="ico-cogwheel"></i>
-        <h3>Easily Customization</h3>
-        <p>Nam aliquam volutpat leo bibendum nunc elit purus, tempus pulvinare rhoncus egestas nibh volutpat leo.</p>
-      </div>
-    </div>
-    <!-- Icon Box End -->
-
-    <!-- Icon Box Start -->
-    <div class="one-third column">
-      <div class="icon-box">
-        <i class="ico-iphone"></i>
-        <h3>Fully Responsive</h3>
-        <p>Fusce porttitor turpis quis molestie costant equat. Nam purus, tincidunt sedeat dapibus ugravida ut dui. </p>
-      </div>
-    </div>
-    <!-- Icon Box End -->
-
+    </section>
   </div>
-  <!-- Icon Boxes / End -->
+  <!-- Flexslider / End -->
 
 </div>
 <!-- 960 Container / End -->
 
-<!-- 960 Container -->
 <div class="container">
 
-  <div class="sixteen columns">
-    <!-- Headline -->
-    <div class="headline no-margin"><h3>Recent Work</h3></div>
-  </div>
+  <div id="portfolio-wrapper">
+    <% @articles.each do |article| %>
+        <div class="one-third column portfolio-item ">
+          <div class="item-description alt">
+            <h5 style="height: 32px">
+              <a href="<%= article_path(article.name.parameterize, article.id) %>"><%= article.name %></a>
+            </h5>
+            <p><%= truncate( article.description, :length => 130, :separator => ' ') %></p>
+          </div>
+          <a class="post-entry" href="<%= article_path(article.name.parameterize, article.id) %>" style="margin: 1px" >
+            <%= translate('continue_reading') %>
+          </a>
+        </div>
+    <% end %>
 
-  <!-- Project -->
-  <div class="four columns">
-    <div class="picture"><a href="single_project.html"><img src="<%= image_path('images/portfolio/portoflio-09.jpg') %>" alt=""/><div class="image-overlay-link"></div></a></div>
-    <div class="item-description">
-      <h5><a href="#">Touch Gestures</a></h5>
-      <p>Mauris sit amet ligula est, eget conseact etur lectus maecenas hendrerit suscipit.</p>
-    </div>
-  </div>
-
-  <!-- Project -->
-  <div class="four columns">
-    <div class="picture"><a href="<%= image_path('images/portfolio/portoflio-08-large.jpg') %>" rel="image" title="Coffee Time">
-      <img src="<%= image_path('images/portfolio/portoflio-08.jpg') %>" alt=""/>
-      <div class="image-overlay-zoom"></div></a></div>
-    <div class="item-description">
-      <h5><a href="#">Coffee Time</a></h5>
-      <p>Amet sit lorem ligula est, eget conseact etur lectus hendrerit suscipit maecenas.</p>
-    </div>
-  </div>
-
-  <!-- Project -->
-  <div class="four columns">
-    <div class="picture"><a href="single_project.html"><img src="<%= image_path('images/portfolio/portoflio-10.jpg') %>" alt=""/><div class="image-overlay-link"></div></a></div>
-    <div class="item-description">
-      <h5><a href="#">Surfing The Web</a></h5>
-      <p>Lorem sit amet ligula est, eget conseact etur lectus maecenas hendrerit suscipit.</p>
-    </div>
-  </div>
-
-  <!-- Project -->
-  <div class="four columns">
-    <div class="picture"><a href="single_project.html"><img src="<%= image_path('images/portfolio/portoflio-07.jpg') %>" alt=""/><div class="image-overlay-link"></div></a></div>
-    <div class="item-description">
-      <h5><a href="#">Wireless Keyboard</a></h5>
-      <p>Ligula mauris sit amet est eget consat etur lectus maecenas hendrerit suscipit.</p>
-    </div>
   </div>
 
 </div>
 <!-- 960 Container / End -->
 
 
-<!-- 960 Container -->
-<div class="container">
+<% if @recent_works.any? %>
+    <!-- 960 Container -->
+    <div class="container">
+      <div class="sixteen columns">
+        <!-- Headline -->
+        <div class="headline no-margin"><h3><%= translate('recent_work') %></h3></div>
+      </div>
+      <% @recent_works.each do |recent_work| %>
+          <div class="four columns">
+            <div class="picture">
+              <a href="<%= recent_work.photo.url(:original) %>" rel="image" >
+                <%= image_tag recent_work.photo.url(:thumb) %>
+                <div class="image-overlay-zoom"></div></a></div>
+            <div class="item-description">
+              <h5><%= recent_work.title %></h5>
+              <p><%= recent_work.text %></p>
+            </div>
+          </div>
+
+      <% end %>
+    </div>
+    <!-- 960 Container / End -->
+<% end %>
+
+
+
+<div class="container tooltips">
+
   <div class="sixteen columns">
-
     <!-- Headline -->
-    <div class="headline no-margin"><h3>Our Clients</h3></div>
+    <div class="headline no-margin"><h3><%= translate('personal_exhibitions') %></h3></div>
+  </div>
 
-    <ul class="client-list">
-      <li><img src="<%= image_path('images/logo-01.png') %>" alt=""/></li>
-      <li><img src="<%= image_path('images/logo-02.png') %>" alt=""/></li>
-      <li><img src="<%= image_path('images/logo-03.png') %>" alt=""/></li>
-      <li><img src="<%= image_path('images/logo-04.png') %>" alt=""/></li>
-      <li><img src="<%= image_path('images/logo-05.png') %>" alt=""/></li>
+  <!-- 1/3 Columns -->
+  <div class="one-third column">
+    <ul class="arrow_list">
+      <% @exhibitions_one.each do |personal| %>
+
+          <li>
+            <% if personal.exhibition_works_count > 0 %>
+                <a rel="tooltip" data-original-title='<%= "#{personal.exhibition_works_count} #{translate('exhibition_photos') }" %>'
+                  href="<%= exhibitions_photos_path(personal.title_tr.parameterize, personal.id) %>">
+                  <%=  I18n.locale == :tr ? personal.title_tr : personal.title_en  %></a>
+            <% else %>
+              <span rel="tooltip" data-original-title="<%= "#{personal.exhibition_works_count} #{translate('exhibition_photos') }"  %>">
+                <%=  I18n.locale == :tr ? personal.title_tr : personal.title_en  %>
+              </span>
+            <% end %>
+          </li>
+
+      <% end %>
     </ul>
-
   </div>
+
+  <div class="one-third column">
+    <ul class="arrow_list">
+      <% @exhibitions_two.each do |personal| %>
+
+
+          <li>
+            <% if personal.exhibition_works_count > 0 %>
+                <a rel="tooltip" data-original-title='<%= "#{personal.exhibition_works_count} #{translate('exhibition_photos') }" %>'
+                   href="<%= exhibitions_photos_path(personal.title_tr.parameterize, personal.id) %>">
+                  <%=  I18n.locale == :tr ? personal.title_tr : personal.title_en  %></a>
+            <% else %>
+              <span rel="tooltip" data-original-title="<%= "#{personal.exhibition_works_count} #{translate('exhibition_photos') }"  %>">
+                <%=  I18n.locale == :tr ? personal.title_tr : personal.title_en  %>
+              </span>
+            <% end %>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="one-third column">
+    <ul class="arrow_list">
+      <% @exhibitions_three.each do |personal| %>
+
+
+          <li>
+            <% if personal.exhibition_works_count > 0 %>
+                <a rel="tooltip" data-original-title='<%= "#{personal.exhibition_works_count} #{translate('exhibition_photos') }" %>'
+                   href="<%= exhibitions_photos_path(personal.title_tr.parameterize, personal.id) %>">
+                  <%=  I18n.locale == :tr ? personal.title_tr : personal.title_en  %></a>
+            <% else %>
+              <span rel="tooltip" data-original-title="<%= "#{personal.exhibition_works_count} #{translate('exhibition_photos') }"  %>">
+                <%=  I18n.locale == :tr ? personal.title_tr : personal.title_en  %>
+              </span>
+            <% end %>
+          </li>
+
+
+      <% end %>
+    </ul>
+  </div>
+  <!-- 1/3 Columns End -->
+
 </div>
-<!-- 960 Container / End -->

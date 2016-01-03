@@ -1,0 +1,105 @@
+
+
+
+<!-- 960 Container -->
+<div class="container ie-dropdown-fix">
+
+  <!-- Header -->
+  <div id="header">
+
+    <!-- Logo -->
+    <div class="eight columns">
+      <div id="logo">
+        <a href="<%= root_path %>"><h1>Hayri Esmer</h1></a>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <!-- Social / Contact -->
+    <div class="eight columns">
+
+      <!-- Social Icons -->
+      <ul class="social-icons">
+        <li class="instagram"><a href="http://instagram.com/hayriesmerr/" target="_blank" >Instagram</a></li>
+        <li class="facebook"><a href="https://www.facebook.com/hayri.esmer" target="_blank" >Facebook</a></li>
+        <li class="twitter"><a href="https://twitter.com/hayresmer" target="_blank">Twitter</a></li>
+        <li class="linkedin"><a href="https://www.linkedin.com/profile/view?id=121928517" target="_blank" >LinkedIn</a></li>
+      </ul>
+
+      <div class="clear"></div>
+
+      <!-- Contact Details -->
+      <div id="contact-details">
+        <ul>
+          <li><%= link_to_unless I18n.locale == :tr, "Türkçe", ln: :tr %></li>
+          <li><%= link_to_unless I18n.locale == :en, "English", ln: :en %></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- Header / End -->
+
+  <!-- Navigation -->
+  <div class="sixteen columns">
+
+    <div id="navigation">
+      <ul id="nav">
+
+        <li><%= link_to translate('home_page'), root_path %></li>
+
+        <% @workLinks = Work.all.select(:title_tr, :title_en,  :id, :parent_id, :order, :slug).where(:is_active => true) %>
+        <% @workLinks.where(:parent_id => nil).order(:order).each do |parent_link| %>
+            <li>
+             <a><%= I18n.locale == :tr  ? parent_link.title_tr : parent_link.title_en %></a>
+             <% @links = @workLinks.where(:parent_id => parent_link.id).order(:order) %>
+              <% unless @links.empty? %>
+                  <ul>
+                    <% @links.each do |link| %>
+                        <li><%= link_to I18n.locale == :tr ? link.title_tr : link.title_en, get_works_url(parent_link.slug, link.slug) %></li>
+                    <% end %>
+                  </ul>
+              <% end %>
+            </li>
+        <% end %>
+
+        <li><a><%=  translate('exhibitions') %></a>
+          <ul>
+            <li><%= link_to "2015 - 2009", exhibitions_path("2015", "2009") %></li>
+            <li><%= link_to "2008 - 2004", exhibitions_path("2008", "2004") %></li>
+            <li><%= link_to "2003 - 2001", exhibitions_path("2003", "2001") %></li>
+            <li><%= link_to "2000 - 1997", exhibitions_path("2000", "1997") %></li>
+            <li><%= link_to "1996 - 1992", exhibitions_path("1996", "1992") %></li>
+          </ul>
+        </li>
+
+
+        <li><a><%=  translate('resume') %></a>
+          <ul>
+            <li><%= link_to translate('about'), about_path %></li>
+            <li><%= link_to translate('bibliography'), bibliography_path %></li>
+            <li><%= link_to translate('awards'), awards_path %></li>
+          </ul>
+        </li>
+
+
+        <li><a><%=  translate('publications') %></a>
+          <ul>
+            <li><%= link_to translate('articles'), articles_path %></li>
+            <li><%= link_to translate('criticism'), criticism_path %></li>
+          </ul>
+        </li>
+
+
+        <li><%= link_to translate('contact'), contact_path %></li>
+
+      </ul>
+    </div>
+    <div class="clear"></div>
+
+  </div>
+  <!-- Navigation / End -->
+
+</div>
+<!-- 960 Container / End -->

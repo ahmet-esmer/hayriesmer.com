@@ -3,11 +3,11 @@
   for (var i=0; i<twitters.length; i++){
     var username = twitters[i].user.screen_name;
     var status = twitters[i].text.replace(/((https?|s?ftp|ssh)\:\/\/[^"\s\<\>]*[^.,;'">\:\s\<\>\)\]\!])/g, function(url) {
-      return '<a href="'+url+'">'+url+'</a>';
+      return '<a target="_blank" href="'+url+'">'+url+'</a>';
     }).replace(/\B@([_a-z0-9]+)/ig, function(reply) {
-      return  reply.charAt(0)+'<a href="http://twitter.com/'+reply.substring(1)+'">'+reply.substring(1)+'</a>';
+      return  reply.charAt(0)+'<a target="_blank" href="http://twitter.com/'+reply.substring(1)+'">'+reply.substring(1)+'</a>';
     });
-    statusHTML.push('<li><span>'+status+'</span> <br/><b><a href="http://twitter.com/'+username+'/statuses/'+twitters[i].id_str+'">'+relative_time(twitters[i].created_at)+'</a></b></li>');
+    statusHTML.push('<li><span>'+status+'</span> <br/><b><a target="_blank" href="http://twitter.com/'+username+'/statuses/'+twitters[i].id_str+'">'+relative_time(twitters[i].created_at)+'</a></b></li>');
   }
   return statusHTML.join('');
 }
@@ -31,7 +31,7 @@ function relative_time(time_value) {
   } else if(delta < (24*60*60)) {
     return 'yaklaşık ' + (parseInt(delta / 3600)).toString() + ' saat önce';
   } else if(delta < (48*60*60)) {
-    return '1 day ago';
+    return '1 gün önce';
   } else {
     return (parseInt(delta / 86400)).toString() + ' gün önce';
   }

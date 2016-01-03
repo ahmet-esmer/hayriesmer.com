@@ -20,10 +20,10 @@ end %>
             <td><%= language.name %></td>
             <td><%= language.code %></td>
             <td><%= language.icon %></td>
-            <td><%= language.is_active %></td>
-            <td><%= link_to 'Detay',  admin_language_path(language)  %></td>
-            <td><%= link_to 'Düzenle', edit_admin_language_path(language) %></td>
-            <td><%= link_to 'Sil', admin_language_path(language), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= raw(status_type(language.is_active)) %></td>
+            <td><%= link_to 'Detay',  admin_language_path(language), :class=> "label label-primary"   %></td>
+            <td><%= link_to 'Düzenle', edit_admin_language_path(language), :class => "label label-info" %></td>
+            <td><%= link_to 'Sil', admin_language_path(language), method: :delete, data: { confirm: 'Are you sure?' }, :class => "label label-danger" %></td>
           </tr>
       <% end %>
       </tbody>

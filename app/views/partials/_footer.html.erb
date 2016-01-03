@@ -1,0 +1,65 @@
+<!-- Footer Start -->
+<div id="footer">
+  <!-- 960 Container -->
+  <div class="container">
+
+    <!-- About -->
+    <div class="four columns">
+      <div class="footer-headline"><h4><%= translate('about') %></h4></div>
+      <p><%= raw(get_type_by('FOOTER_ABOUT')) %></p>
+      <a class="post-entry" href="<%= about_path %>" style="margin: 1px" >
+        <%= translate('continue_reading') %>
+      </a>
+    </div>
+
+    <!-- Useful Links -->
+    <div class="four columns">
+      <div class="footer-headline"><h4><%= translate('links') %></h4></div>
+      <ul class="links-list">
+        <% get_links.each do |link| %>
+            <li><a href="<%= link.href %>" target="_blank" ><%= link.text %></a></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <!-- Photo Stream -->
+    <div class="four columns">
+      <div class="footer-headline"><h4>Instagram</h4></div>
+      <div id="instagram" class="flickr-widget">
+        <script type="text/javascript">
+            jQuery(document).ready(function($){
+                $.getJSON('/instagram', function(instagram){
+                    $("#instagram").html(tz_format_instagram(instagram));
+                }); });
+        </script>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <!-- Latest Tweets -->
+    <div class="four columns">
+      <div class="footer-headline"><h4><%= translate('last_tweets') %></h4></div>
+      <ul id="twitter"></ul>
+
+      <script type="text/javascript">
+          jQuery(document).ready(function($){
+              $.getJSON('/twitter', function(tweets){
+                  $("#twitter").html(tz_format_twitter(tweets));
+              }); });
+      </script>
+      <div class="clear"></div>
+    </div>
+
+    <!-- Footer / Bottom -->
+    <div class="sixteen columns">
+      <div id="footer-bottom">
+        <%= raw(get_type_by('COPYRIGHT')) %>
+        <div id="scroll-top-top"><a href="#"></a></div>
+      </div>
+    </div>
+
+  </div>
+  <!-- 960 Container / End -->
+
+</div>
+<!-- Footer / End -->

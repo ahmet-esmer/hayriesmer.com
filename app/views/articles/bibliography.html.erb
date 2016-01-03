@@ -1,0 +1,41 @@
+
+
+<%= render 'partials/current_menu', menu_name:  translate('resume')  %>
+
+<div id="page-title">
+  <h2><%= translate('bibliography') %></h2>
+  <div id="bolded-line"></div>
+</div>
+
+<div class="container">
+  <% @articles.each do |article| %>
+      <div class="post" style="margin-top: 1px; margin-bottom: 5px" >
+        <div class="post-content" style="margin: 1px" >
+          <div class="post-title">
+            <h2>
+              <% unless article.body.blank? %>
+                  <a href="<%= article_path(article.name.parameterize, article.id) %>"  >
+                    <%= article.name %>
+                  </a>
+              <% else %>
+                 <a><%= article.name %></a>
+              <% end %>
+
+            </h2>
+          </div>
+          <div class="post-meta">
+            <span><%= article.description %></span>
+          </div>
+
+          <% unless article.body.blank? %>
+              <a class="post-entry" href="<%= article_path(article.name.parameterize, article.id) %>" style="margin: 1px" >
+                <%= translate('continue_reading') %>
+              </a>
+          <% end %>
+
+
+        </div>
+      </div>
+  <% end %>
+
+</div>

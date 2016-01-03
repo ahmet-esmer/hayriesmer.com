@@ -8,9 +8,9 @@ end %>
       <th>İçerik</th>
       <th>URL</th>
       <th>Sıra</th>
-      <th>Durum</th>
-      <th>Language</th>
+      <th>Dil</th>
       <th>Resim</th>
+      <th>Durum</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,12 +22,12 @@ end %>
         <td><%= recent_work.text %></td>
         <td><%= recent_work.href %></td>
         <td><%= recent_work.order %></td>
-        <td><%= recent_work.is_active %></td>
         <td><%= recent_work.language.name %></td>
         <td><%= image_tag recent_work.photo.url(:thumb) %></td>
-        <td><%= link_to 'Detay',  admin_recent_work_path(recent_work) %></td>
-        <td><%= link_to 'Düzenle', edit_admin_recent_work_path(recent_work) %></td>
-        <td><%= link_to 'Sil', admin_recent_work_path(recent_work), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= raw(status_type(recent_work.is_active)) %></td>
+        <td><%= link_to 'Detay',  admin_recent_work_path(recent_work), :class => "label label-info" %></td>
+        <td><%= link_to 'Düzenle', edit_admin_recent_work_path(recent_work), :class=> "label label-primary" %></td>
+        <td><%= link_to 'Sil', admin_recent_work_path(recent_work), method: :delete, data: { confirm: 'Are you sure?' } , :class => "label label-danger" %></td>
       </tr>
     <% end %>
   </tbody>

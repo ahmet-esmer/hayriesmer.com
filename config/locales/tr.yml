@@ -3,6 +3,32 @@ tr:
   canvases: "Tuvaller"
   printmaking: "Baskıresimleri"
   exhibitions: "Sergiler"
+  last_tweets: "Son Tweetler"
+  links: "Linkler"
+  about: "Hakkımda"
+  mixed_exhibitions: "Karma Sergiler"
+  personal_exhibitions: "Kişisel Sergiler"
+  exhibition_photos: "Resim"
+  exhibition_photos_detail: "Sergi Resimleri"
+  recent_work: "Galeriden Görünümler"
+  resume: "Özgeçmiş"
+  about: "Hakkında"
+  bibliography: "Bibliyografya"
+  awards: "Ödüller"
+  job: "Sanatçı"
+  publications: "Yayınlar"
+  articles: "Yazılar"
+  criticism: "Eleştiriler"
+  continue_reading: "Devamı"
+  contact: "İletişim"
+  social: "Sosyal Medya"
+  contact_form: "İletişim Formu"
+  send_message: "Mesaj Gönder"
+  name: "Ad Soyad"
+  email: "Eposta"
+  message: "Mesaj"
+  email_message: "Mesajınız başarı ile gönderildi."
+  email_null_message: "Lütfen zorunlu alanları doldurunuz."
   date:
     abbr_day_names:
     - Pzr
@@ -277,4 +303,8 @@ tr:
         is_active: Durum
         language: Dil
         photo: Resim
-
+      work:
+        title_tr: Türkçe Başlık
+        title_en: İngilizce Başlık
+        order: Sıra
+        is_active: Durum

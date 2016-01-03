@@ -6,7 +6,7 @@ class Admin::ExhibitionsController < ApplicationController
   # GET /admin/exhibitions
   # GET /admin/exhibitions.json
   def index
-    @admin_exhibitions = Exhibition.all
+    @admin_exhibitions = Exhibition.all.order('start_at DESC')
   end
 
   # GET /admin/exhibitions/1
@@ -17,6 +17,7 @@ class Admin::ExhibitionsController < ApplicationController
   # GET /admin/exhibitions/new
   def new
     @admin_exhibition = Exhibition.new
+    @admin_exhibition.is_active = true
   end
 
   # GET /admin/exhibitions/1/edit

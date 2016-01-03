@@ -1,0 +1,19 @@
+
+<%= render 'partials/current_menu', menu_name:  translate('resume')  %>
+<div id="page-title">
+  <h2><%= translate('about') %></h2>
+  <div id="bolded-line"></div>
+</div>
+
+<div class="container">
+  <!-- Standard Structure -->
+  <div class="two-thirds column">
+    <%= raw(@about) %>
+  </div>
+
+  <div class="one-third column">
+    <%= render 'partials/about_photo' %>
+  </div>
+  <!-- Standard Structure End -->
+
+</div>

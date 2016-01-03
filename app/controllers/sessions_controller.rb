@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       session[:user_name] = user.user_name
 
-      redirect_to admin_url, notice: "Logged in!"
+      redirect_to admin_url, notice: "Giriş yapıldı!"
     else
       flash.now.alert = "Email or password is invalid"
       render "new"
@@ -20,6 +20,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     session[:user_name] = nil
-    redirect_to root_url, notice: "Logged out!"
+    redirect_to root_url, notice: "Çıkış yapıldı!"
   end
 end

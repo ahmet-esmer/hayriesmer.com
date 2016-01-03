@@ -18,6 +18,7 @@ class Admin::LinksController < ApplicationController
   # GET /admin/links/new
   def new
     @admin_link = Link.new
+    @admin_link.is_active = true
   end
 
   # GET /admin/links/1/edit
@@ -28,15 +29,11 @@ class Admin::LinksController < ApplicationController
   def create
     @admin_link = Link.new(admin_link_params)
 
-    respond_to do |format|
       if @admin_link.save
-        format.html { redirect_to @admin_link, success: 'Link kaydı oluşturuldu.' }
-        format.json { render :show, status: :created, location: @admin_link }
+        redirect_to admin_links_url, success: 'Link kaydı oluşturuldu.'
       else
-        format.html { render :new }
-        format.json { render json: @admin_link.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /admin/links/1

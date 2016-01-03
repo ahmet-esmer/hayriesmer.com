@@ -11,3 +11,6 @@ Time::DATE_FORMATS.merge!(:default => '%d/%m/%Y %H:%M')
 Date::DATE_FORMATS.merge!(:default => '%d/%m/%Y')
 
 
+ENV['RAILS_ENV'] ||= 'production'
+
+

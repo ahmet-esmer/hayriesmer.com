@@ -1,0 +1,25 @@
+<% content_for(:breadcrumb) do
+  render 'admin/partials/breadcrumb', page_name: 'Sergi Resimleri', icon:'list'
+end %>
+
+<div class="row">
+    <% @admin_work_details.each do |work_detail| %>
+      <div class="col-lg-3 text-center">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= image_tag work_detail.photo.url(:thumb), width: '225' %>
+            <div class="panel-footer">
+              <%= link_to 'Düzenle', edit_admin_work_photo_path(@work, work_detail),  :class => "btn btn-xs btn-danger" %>
+              <%= link_to 'Sil', admin_work_photo_path(@work, work_detail), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-xs btn-success"  %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>
+
+
+<%= link_to new_admin_work_photo_path(@work), class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    Yeni Resim
+<% end %>

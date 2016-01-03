@@ -7,7 +7,6 @@ class Admin::ExhibitionWorksController < ApplicationController
     @exhibition = Exhibition.find(params[:exhibition_id])
   }
 
-
   def index
     @admin_exhibition_works = ExhibitionWork.where(exhibition_id: @exhibition.id).all
   end
@@ -55,6 +54,6 @@ class Admin::ExhibitionWorksController < ApplicationController
     end
 
     def admin_exhibition_work_params
-      params.require(:exhibition_work).permit(:title, :is_active, :photo)
+      params.require(:exhibition_work).permit(:title, :is_active, :photo, :order)
     end
 end

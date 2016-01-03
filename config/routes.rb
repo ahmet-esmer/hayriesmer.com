@@ -2,14 +2,54 @@ HayriEsmer::Application.routes.draw do
 
 
   mount Ckeditor::Engine => '/ckeditor'
-  resources :articles, only: [:index]
+
+
+
+  constraints subdomain: 'www' do
+    get ':any', to: redirect(subdomain: nil, path: '/%{any}'), any: /.*/
+  end
+
+
+  #get 'resimler.aspx', to: redirect('/')
+
+  get  'iletisim', to: 'messages#new', as: :contact
+  post 'iletisim', to: 'messages#create'
 
   get 'signup', to: 'users#new',        as: :signup
   get 'login',  to: 'sessions#new',     as: :login
   get 'logout', to: 'sessions#destroy', as: :logout
 
-  get 'twitter',   to: 'social_media#twitter', as: :twitter_path
-  get 'instagram', to: 'social_media#instagram',   as: :instagram_path
+  get 'twitter',   to: 'social_media#twitter',     as: :twitter
+  get 'instagram', to: 'social_media#instagram',   as: :instagram
+
+  get 'hakkinda',         to: 'home#about',        as: :about
+
+  get 'oduller',          to: 'home#awards',       as: :awards
+
+
+  get 'makaleler',        to: 'articles#index',        as: :articles
+  get 'elestiriler',      to: 'articles#criticism',    as: :criticism
+  get 'bibliyografya',    to: 'articles#bibliography', as: :bibliography
+
+
+  get 'makale/:name/:id', to: 'articles#detail',    as: :article
+
+
+  get 'resimler/pencereler',    to: 'works#windows', as: :windows
+
+  get 'resimler/:id',    to: 'works#index', as: :resimler
+  get 'gravurler/:id',   to: 'works#index', as: :gravurler
+  get 'cizimler/:id',    to: 'works#index', as: :cizimler
+  get 'diger-kolaj/:id', to: 'works#index', as: :diger_kolaj
+
+
+
+
+  get 'sergiler/:start_date-:end_date', to: 'exhibitions#index', as: :exhibitions
+
+  #
+  get 'pencereler-atlas-sanat-galerisi/sergi-resimleri/:id', to: 'exhibitions#windows', as: :exhibitions_windows_photos
+  get ':title_tr/sergi-resimleri/:id', to: 'exhibitions#photos', as: :exhibitions_photos
 
   resources :users
   resources :sessions
@@ -25,20 +65,28 @@ HayriEsmer::Application.routes.draw do
     resources :exhibitions
     resources :recent_works
 
+    resources :works
+
     resources :exhibitions do
       resources :photos, :controller => "exhibition_works"
     end
+
+    resources :works do
+      resources :photos, :controller => "work_details"
+    end
   end
 
-  #root :to => "home#index"
 
+  scope :format => true, :constraints => { :format => 'aspx' } do
+    get '/*x' => redirect('/')
+  end
 
-  root to: 'articles#index'
+ scope "(:ln)", :locale => /en|tr/ do
+    root :to => 'home#index'
+    get "home/index"
+ end
 
- # scope "(:locale)", :locale => /en|tr/ do
-  #  root :to => 'home#index'
-   # get "home/index"
-  #end
+  get '404', :to => 'home#index'
 
 
   # The priority is based upon order of creation:

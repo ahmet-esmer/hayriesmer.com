@@ -22,6 +22,21 @@ module HayriEsmer
     config.i18n.default_locale = :tr
 
 
+    config.action_mailer.smtp_settings = {
+        address: "mail.hayriesmer.com",
+        port: 25,
+        domain: "hayriesmer.com",
+        user_name: "info",
+        password: "Ah4612312",
+        authentication: :plain,
+        enable_starttls_auto: true
+    }
+
+    config.action_mailer.default_url_options = {
+        host: "hayriesmer.com"
+    }
+
+
   end
 
 

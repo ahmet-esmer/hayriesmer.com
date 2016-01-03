@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112000256) do
+ActiveRecord::Schema.define(version: 20150224202429) do
 
   create_table "articles", force: true do |t|
     t.string   "name"
@@ -26,7 +26,10 @@ ActiveRecord::Schema.define(version: 20150112000256) do
     t.integer  "language_id"
     t.boolean  "is_published"
     t.string   "author"
+    t.string   "type_name",    limit: 40
   end
+
+  add_index "articles", ["type_name"], name: "index_articles_on_type_name", using: :btree
 
   create_table "carousels", force: true do |t|
     t.string   "title",              limit: 60
@@ -67,21 +70,23 @@ ActiveRecord::Schema.define(version: 20150112000256) do
     t.string   "title",              limit: 100
     t.boolean  "is_active"
     t.integer  "exhibition_id"
+    t.integer  "order"
   end
 
   add_index "exhibition_works", ["exhibition_id"], name: "index_exhibition_works_on_exhibition_id", using: :btree
 
   create_table "exhibitions", force: true do |t|
-    t.string   "title_tr",      limit: 60
-    t.string   "title_en",      limit: 60
-    t.string   "text_tr",       limit: 500
-    t.string   "text_en",       limit: 500
+    t.string   "title_tr",               limit: 60
+    t.string   "title_en",               limit: 60
+    t.string   "text_tr",                limit: 500
+    t.string   "text_en",                limit: 500
     t.date     "start_at"
     t.date     "end_at"
     t.boolean  "is_individual"
     t.boolean  "is_active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "exhibition_works_count",             default: 0
   end
 
   create_table "languages", force: true do |t|
@@ -132,5 +137,32 @@ ActiveRecord::Schema.define(version: 20150112000256) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "work_details", force: true do |t|
+    t.string   "title",              limit: 200
+    t.boolean  "is_active"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "work_id"
+    t.integer  "order"
+  end
+
+  add_index "work_details", ["work_id"], name: "index_work_details_on_work_id", using: :btree
+
+  create_table "works", force: true do |t|
+    t.string  "title_tr",    limit: 60
+    t.string  "title_en",    limit: 60
+    t.integer "order"
+    t.boolean "is_active"
+    t.integer "parent_id"
+    t.string  "title",       limit: 200
+    t.string  "description", limit: 300
+    t.string  "keywords",    limit: 300
+    t.string  "slug"
+  end
+
+  add_index "works", ["slug"], name: "index_works_on_slug", using: :btree
 
 end

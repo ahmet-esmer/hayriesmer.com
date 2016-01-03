@@ -278,7 +278,7 @@
 jQuery(document).ready(function() {
 
     $('.tooltips').tooltip({
-      selector: "a[rel=tooltip]"
+      selector: "[rel=tooltip]"
     })
 
 });

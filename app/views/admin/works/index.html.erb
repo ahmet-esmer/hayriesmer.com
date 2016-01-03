@@ -1,0 +1,51 @@
+<% content_for(:breadcrumb) do
+  render 'admin/partials/breadcrumb', page_name: 'Sergiler', icon:'list'
+end %>
+<div class="table-responsive">
+
+  <table  class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Türkçe Başlık</th>
+      <th>İngilizce Başlık</th>
+      <th>Sıra</th>
+      <th>Durum</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_works.where(:parent_id => nil).order(:order).each do |work| %>
+      <tr class="info">
+        <td><%= work.title_tr %></td>
+        <td><%= work.title_en %></td>
+        <td><%= work.order %></td>
+        <td><%= raw(status_type(work.is_active)) %></td>
+        <td></td>
+        <td></td>
+        <td><%= link_to 'Düzenle', edit_admin_work_path(work), :class=> "label label-primary" %></td>
+        <td><%= link_to 'Sil', admin_work_path(work), method: :delete, data: { confirm: 'Are you sure?' } , :class => "label label-danger"%></td>
+      </tr>
+
+      <% @links = @admin_works.where(:parent_id => work.id).order(:order) %>
+      <% @links.each do |parent_link| %>
+          <tr>
+            <td>-- <%= parent_link.title_tr %></td>
+            <td><%= parent_link.title_en %></td>
+            <td><%= parent_link.order %></td>
+            <td><%= raw(status_type(parent_link.is_active)) %></td>
+            <td><%= link_to 'Resim Ekle', new_admin_work_photo_path(parent_link), :class=> "label label-primary" %></td>
+            <td><%= link_to 'Resimler', admin_work_photos_path(parent_link), :class => "label label-info" %></td>
+            <td><%= link_to 'Düzenle', edit_admin_work_path(parent_link), :class=> "label label-primary" %></td>
+            <td><%= link_to 'Sil', admin_work_path(parent_link), method: :delete, data: { confirm: 'Are you sure?' } , :class => "label label-danger" %></td>
+          </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+  </div>
+
+<%= link_to new_admin_work_path , class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    Yeni Eser
+<% end %>

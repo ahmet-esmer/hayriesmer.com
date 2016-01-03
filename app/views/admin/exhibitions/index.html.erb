@@ -8,16 +8,12 @@ end %>
   <thead>
     <tr>
       <th>Türkçe Başlık</th>
-      <th>İngilizce Başlık</th>
-      <th>Türkçe İçerik</th>
-      <th>İngiliz İçerik</th>
-      <th>Başlanğıç Tarihi</th>
-      <th>Bitişi Tarih</th>
+      <th>Tarih</th>
       <th>Kişisel Sergi</th>
       <th>Durum</th>
       <th>Resim</th>
       <th>Resimler</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -25,19 +21,13 @@ end %>
     <% @admin_exhibitions.each do |exhibition| %>
       <tr>
         <td><%= exhibition.title_tr %></td>
-        <td><%= exhibition.title_en %></td>
-        <td><%= exhibition.text_tr %></td>
-        <td><%= exhibition.text_en %></td>
-        <td><%= exhibition.start_at %></td>
-        <td><%= exhibition.end_at %></td>
-        <td><%= exhibition.is_individual %></td>
-        <td><%= exhibition.is_active %></td>
-        <td><%= link_to 'Resim Ekle', new_admin_exhibition_photo_path(exhibition) %></td>
-        <td><%= link_to 'Resimler', admin_exhibition_photos_path(exhibition) %></td>
-        <td><%= link_to 'Detay',  admin_exhibition_path(exhibition) %></td>
-        <td><%= link_to 'Düzenle', edit_admin_exhibition_path(exhibition) %></td>
-        <td><%= link_to 'Sil', admin_exhibition_path(exhibition), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
+        <td><%= exhibition.start_at.strftime("%Y")  %></td>
+        <td><%= raw(boolean_type(exhibition.is_individual)) %></td>
+        <td><%= raw(status_type(exhibition.is_active)) %></td>
+        <td><%= link_to 'Resim Ekle', new_admin_exhibition_photo_path(exhibition), :class=> "label label-primary"  %></td>
+        <td><%= link_to 'Resimler', admin_exhibition_photos_path(exhibition), :class => "label label-info" %></td>
+        <td><%= link_to 'Düzenle', edit_admin_exhibition_path(exhibition), :class=> "label label-primary" %></td>
+        <td><%= link_to 'Sil', admin_exhibition_path(exhibition), method: :delete, data: { confirm: 'Are you sure?' }, :class => "label label-danger" %></td>
       </tr>
     <% end %>
   </tbody>

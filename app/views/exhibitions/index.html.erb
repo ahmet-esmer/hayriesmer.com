@@ -1,0 +1,101 @@
+
+
+<%= render 'partials/current_menu', menu_name:  translate('exhibitions')  %>
+
+<!-- Content
+================================================== -->
+
+<!-- 960 Container -->
+<div class="container">
+
+  <div class="sixteen columns">
+
+    <!-- Page Title -->
+    <div id="page-title">
+      <h2><%= translate('exhibitions') %> <span>/ <%=  "#{@start} - #{@end}" %></span></h2>
+      <div id="bolded-line"></div>
+    </div>
+    <!-- Page Title / End -->
+
+  </div>
+</div>
+<!-- 960 Container / End -->
+
+
+<!-- 960 Container -->
+<div class="container">
+
+
+  <!-- Sidebar
+  ================================================== -->
+  <div class="four columns">
+
+    <!-- Categories -->
+    <div class="widget-alt">
+      <div class="headline no-margin"><h4> <%= translate('exhibitions') %></h4></div>
+      <ul class="links-list-alt">
+          <li><%= link_to "2015 - 2009", exhibitions_path("2015", "2009") %></li>
+          <li><%= link_to "2008 - 2004", exhibitions_path("2008", "2004") %></li>
+          <li><%= link_to "2003 - 2001", exhibitions_path("2003", "2001") %></li>
+          <li><%= link_to "2000 - 1997", exhibitions_path("2000", "1997") %></li>
+          <li><%= link_to "1996 - 1992", exhibitions_path("1996", "1992") %></li>
+        </ul>
+
+    </div>
+
+    <!-- Social -->
+
+  </div>
+
+
+  <!-- Page Content
+  ================================================== -->
+  <div class="twelve columns">
+    <div class="headline no-margin"><h4><%=  "#{@start} - #{@end}" %>  <%= translate('personal_exhibitions') %></h4></div>
+    <% @personal_exhibitions.each do |personal| %>
+        <div class="two column" style="margin-top: 10px; margin-left: 0px;width: 60px;" >
+          <% if personal.exhibition_works_count > 0  %>
+              <a href="<%= exhibitions_photos_path(personal.title_tr.parameterize, personal.id) %>" class="button color" style="width: 50px;font-size: 10px;" >
+                <%= personal.exhibition_works_count %> <%= translate('exhibition_photos') %>
+              </a>
+          <% end %>
+        </div>
+    <div class="nine columns"  >
+      <div class="post-title"><h4><%= personal.title_tr %></h4></div>
+      <div class="post-meta"style="margin: 0px 0 6px 0;" >
+        <span><%= personal.start_at.strftime("%Y - ") %></span>
+        <span><%= personal.text_tr %></span>
+      </div>
+    </div>
+        <div class="clear" ></div>
+    <% end %>
+
+<div class="clear" ></div>
+    <div class="headline no-margin"><h4> <%=  "#{@start} - #{@end}" %> <%= translate('mixed_exhibitions') %></h4></div>
+      <% @mixed_exhibitions.each do |mixed| %>
+          <div class="two column" style="margin-top: 10px; margin-left: 0px;width: 60px;" >
+
+            <% if mixed.exhibition_works_count > 0  %>
+                <a href="#" class="button color" style="width: 50px;font-size: 10px;" >
+                  <%= mixed.exhibition_works_count %> <%= translate('exhibition_photos') %>
+                </a>
+            <% end %>
+          </div>
+
+          <div class="nine columns"  >
+            <div class="post-title"><h4><%= mixed.title_tr %></h4></div>
+            <div class="post-meta"style="margin: 0px 0 6px 0;" >
+              <span><%= mixed.start_at.strftime("%Y - ") %></span>
+              <span><%= mixed.text_tr %></span>
+            </div>
+          </div>
+        <div class="clear" ></div>
+      <% end %>
+
+
+
+  </div>
+
+
+</div>
+<!-- 960 Container End -->

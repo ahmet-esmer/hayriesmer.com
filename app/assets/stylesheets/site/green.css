@@ -29,8 +29,7 @@ li.current,
 	border-color: #72b626;
 }
 
-#filters a:hover, 
-.selected, 
+.selected,
 #portfolio-navi a:hover {
 	background-color: #72b626 !important;
 	border: 1px solid #72b626 !important;

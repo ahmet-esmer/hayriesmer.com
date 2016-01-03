@@ -15,6 +15,7 @@ class Admin::RecentWorksController < ApplicationController
 
   def new
     @admin_recent_work = RecentWork.new
+    @admin_recent_work.is_active = true
   end
 
   def edit

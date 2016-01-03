@@ -12,6 +12,9 @@ rails generate scaffold_controller admin/Carousels title:string{60} text:string{
 rails generate scaffold_controller admin/RecentWorks title:string{60} text:string{500} href:string{500} order:integer is_active:boolean language_id:integer --skip-jbuilder
 
 
+rails generate scaffold_controller admin/Works title_tr:string{60} title_en:string{60} order:integer is_active:boolean --skip-jbuilder
+rails generate scaffold_controller admin/WorkDetails title:string{100} is_active:boolean --skip-jbuilder
+
 
 MODEL OLUŞTURMA
 rails generate model Language --migration=false
@@ -35,6 +38,9 @@ rails generate migration CreateExhibitionWorks title:string{100} is_active:boole
 
 rails generate migration CreateRecentWorks title:string{60} text:string{500} href:string{500} order:integer is_active:boolean language:references
 
+rails generate migration CreateWorks title_tr:string{60} title_en:string{60} order:integer is_active:boolean
+rails generate migration CreateWorkDetails title:string{100} is_active:boolean
+
 
 --force //aynı migationu tekrar çalıştırmak tabloyada eklemek gerekiyı 'force:true' şeklinde
 
@@ -42,11 +48,15 @@ TABLOYA COLON EKLEME
 rails generate migration AddIsActivToTabla IsActiv:bool
 rails generate migration AddPhotoToCarousels
 
+rails generate migration AddOrderToExhibitionWorks
+
 rails generate migration AddAuthorToArticles
 rails generate migration AddIsPublishedToArticles
 
 TABLODAN COLON SILME
 rails generate migration RemoveIsActivFromTablo IsActiv:
+
+rails generate migration RemoveTypeFromArticles Type:
 
 
 TABLO DEGİŞİKLİK
@@ -57,9 +67,14 @@ rails generate migration AddLanguage_idToArticles language_id:integer
 
 rails g migration add_user_id_to_tester user_id:integer
 
+rails generate migration AddAncestryToWorks ancestry:string index
+
 
 EN SON DB İŞLEMİNİ GERİ ALMAK
-rake db:migrate    VERSION=20150103154023
+rake db:migrate    VERSION='20150213183119'
+
+
+
 rake db:rollback STEP=2
 rake db:migrate:redo
 
@@ -79,10 +94,26 @@ rake log:clear
 rake tmp:clear
 
 
+
+
+SSH BAĞLANTI
+
+Hostname: 69.25.137.85
+Username: hayriesm
+Password: W16jU72vff
+
+touch tmp/restart.txt
+
 IMAGES
 rails generate paperclip carousels photo
 
 
+rails g migration add_slug_to_works slug:string
+
+
+rails g migration add__exhibition_works_countto_exhibition exhibition_works_count:ineger
+
+rails generate migration AddTypeNameToArticles type
 
 
 

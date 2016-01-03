@@ -9,7 +9,6 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles
   def index
     @articles = Article.joins(:language).all
-    logger.fatal(@articles)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -30,10 +29,7 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
-    #respond_to do |format|
-     # format.html # new.html.erb
-      #format.json { render json: @article }
-   # end
+    @article.is_published = true
   end
 
   # GET /articles/1/edit

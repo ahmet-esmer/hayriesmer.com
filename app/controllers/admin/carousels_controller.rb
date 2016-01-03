@@ -7,7 +7,7 @@ class Admin::CarouselsController < ApplicationController
   # GET /admin/carousels
   # GET /admin/carousels.json
   def index
-    @admin_carousels = Carousel.joins(:language).all
+    @admin_carousels = Carousel.joins(:language).order(:order).all
 
   end
 
@@ -19,6 +19,7 @@ class Admin::CarouselsController < ApplicationController
   # GET /admin/carousels/new
   def new
     @admin_carousel = Carousel.new
+    @admin_carousel.is_active = true
   end
 
   # GET /admin/carousels/1/edit

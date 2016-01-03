@@ -12,6 +12,7 @@ end %>
         <th>Sıra</th>
         <th>Tarih</th>
         <th>Dil</th>
+        <th>Tip</th>
         <th></th>
         <th></th>
         <th></th>
@@ -25,9 +26,10 @@ end %>
           <td><%= article.order %></td>
           <td><%= article.created_at.to_date  %></td>
           <td><%= article.language.name %></td>
-          <td><%= link_to 'Detay', admin_article_path(article) %></td>
-          <td><%= link_to 'Düzenle', edit_admin_article_path(article) %></td>
-          <td><%= link_to 'Sil', admin_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= article.type_name %></td>
+          <td><%= link_to 'Detay', admin_article_path(article), :class => "label label-info" %></td>
+          <td><%= link_to 'Düzenle', edit_admin_article_path(article), :class=> "label label-primary" %></td>
+          <td><%= link_to 'Sil', admin_article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, :class => "label label-danger" %></td>
         </tr>
     <% end %>
     </tbody>

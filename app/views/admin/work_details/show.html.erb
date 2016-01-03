@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @admin_work_detail.title %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @admin_work_detail.is_active %>
+</p>
+
+<%= link_to 'Edit', edit_admin_work_detail_path(@admin_work_detail) %> |
+<%= link_to 'Back', admin_work_details_path %>

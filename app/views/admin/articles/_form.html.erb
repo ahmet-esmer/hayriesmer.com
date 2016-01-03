@@ -2,13 +2,24 @@
 
 <%= form_for([:admin,@article]) do |f| %>
     <%= render 'admin/partials/form_errors', object: @article %>
+
+    <div class="form-group">
+      <%= f.label :type_name %><br />
+
+
+
+
+      <%= f.select :type_name,
+                   options_for_select([["Makale", "ARTICLES"], ["Bibliyografya", "BIBLIOGRAPHY"], ["Eleştiri", "CRITICISM"]], :selected => f.object.type_name ),
+                   {}, { :class => 'form-control' } %>
+    </div>
   <div class="form-group">
     <%= f.label :name %><br />
     <%= f.text_field :name, :class => 'form-control' %>
   </div>
     <div class="form-group">
       <%= f.label :author %>
-      <%= f.number_field :author, :class => 'form-control' %>
+      <%= f.text_field :author, :class => 'form-control' %>
     </div>
     <div class="form-group">
     <%= f.label :title %>

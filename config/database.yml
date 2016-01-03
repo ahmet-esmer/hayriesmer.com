@@ -49,9 +49,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  adapter: postgresql
-  encoding: unicode
-  database: xpdwifjb_hayri_esmer_db
-  username: xpdwifjb_hayri
+  adapter: mysql
+  encoding: utf8
+  database: hayriesmer_production
+  pool: 5
+  username: hayriesmer_user
   password: Ah4612312
+  socket: /tmp/mysql.sock

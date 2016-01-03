@@ -13,7 +13,6 @@ class SocialMediaController < ApplicationController
       @twitter = @@client.user_timeline({ :count => 3, :include_rts => false })
       Rails.cache.write('twitter', @twitter, expires_in: 10.minute)
 
-      puts 'Twitter canlı data'
     end
     render json: @twitter
   end
@@ -23,7 +22,6 @@ class SocialMediaController < ApplicationController
     if @instagram.nil?
       @instagram = Instagram.user_recent_media("1080343853", {:count => 9})
       Rails.cache.write('instagram', @instagram, expires_in: 10.minute)
-      puts 'yok'
     end
     render json: @instagram
   end

@@ -20,6 +20,7 @@ class Admin::LanguagesController < ApplicationController
   # GET /admin/languages/new
   def new
     @admin_language = Language.new
+    @admin_language.is_active = true
   end
 
   # GET /admin/languages/1/edit

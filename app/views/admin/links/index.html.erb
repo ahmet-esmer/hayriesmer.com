@@ -10,8 +10,8 @@ end %>
       <th>Text</th>
       <th>Href</th>
       <th>Sıra</th>
-      <th>Durum</th>
       <th>Dil</th>
+      <th>Durum</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,12 +22,11 @@ end %>
         <td><%= link.text %></td>
         <td><%= link.href %></td>
         <td><%= link.order %></td>
-        <td><%= link.is_active %></td>
         <td><%= link.language.name %></td>
-
-        <td><%= link_to 'Detay',  admin_link_path(link)  %></td>
-        <td><%= link_to 'Düzenle', edit_admin_link_path(link) %></td>
-        <td><%= link_to 'Sil', admin_link_path(link), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= raw(status_type(link.is_active)) %></td>
+        <td><%= link_to 'Detay',  admin_link_path(link), :class => "label label-info"  %></td>
+        <td><%= link_to 'Düzenle', edit_admin_link_path(link),:class=> "label label-primary" %></td>
+        <td><%= link_to 'Sil', admin_link_path(link), method: :delete, data: { confirm: 'Are you sure?' }, :class => "label label-danger"  %></td>
 
       </tr>
     <% end %>
