@@ -24,4 +24,4 @@
 /app/config/database.yml
 
 /BuildProcessTemplates
-/.DS_Store
+.DS_Store
