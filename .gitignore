@@ -19,7 +19,7 @@
 
 #RubyMine ile ilgili dosyalar
 **/.idea
-/BuildProcessTemplates
+**/BuildProcessTemplates/
 
 /app/config/environments/production.rb
 /app/config/database.yml
